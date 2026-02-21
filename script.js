@@ -1,4 +1,3 @@
-// --- الجزيئات الزرقاء والبنفسجية ---
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -17,7 +16,7 @@ class Particle {
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.size > 0.2) this.size -= 0.01;
+        if (this.size > 0.2) this.size -= 0.005;
     }
     draw() {
         ctx.fillStyle = this.color;
@@ -40,7 +39,8 @@ function handleParticles() {
 }
 
 function init() {
-    for (let i = 0; i < 100; i++) { particles.push(new Particle()); }
+    particles = [];
+    for (let i = 0; i < 100; i++) particles.push(new Particle());
 }
 
 function animate() {
@@ -50,12 +50,8 @@ function animate() {
 }
 init(); animate();
 
-// --- نظام القائمة والموبايل ---
-function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('active');
-}
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
-// --- منع تغيير النقابة ---
 function selectGuild(name) {
     if (localStorage.getItem('myGuild')) {
         alert("النظام: لقد اخترت ولاءك بالفعل لنقابة " + localStorage.getItem('myGuild'));
@@ -64,3 +60,11 @@ function selectGuild(name) {
         localStorage.setItem('myGuild', name);
     }
 }
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        if (window.innerWidth <= 768) toggleMenu();
+    });
+});
