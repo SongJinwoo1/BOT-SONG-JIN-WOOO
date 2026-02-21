@@ -10,38 +10,41 @@ body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; 
 #particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
 .system-nav {
-    position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9);
+    position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95);
     padding: 10px 5%; display: flex; justify-content: space-between; align-items: center;
     z-index: 1000; border-bottom: 2px solid var(--blue);
 }
 
 .logo img { height: 50px; border-radius: 50%; border: 2px solid var(--blue); }
 
-.nav-links a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; transition: 0.3s; }
+.nav-links a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; transition: 0.3s; font-size: 0.9rem; }
 .nav-links a:hover { color: var(--blue); text-shadow: 0 0 10px var(--blue); }
 
 .gate-section { min-height: 100vh; padding: 120px 20px 40px; display: flex; flex-direction: column; align-items: center; text-align: center; }
 
 .section-banner { width: 100%; max-width: 700px; border-radius: 15px; border: 2px solid var(--purple); box-shadow: 0 0 20px var(--purple); margin-bottom: 20px; }
 
+.guilds-wrapper { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 1000px; }
+.guild-card { background: rgba(15, 15, 15, 0.9); padding: 25px; border: 1px solid var(--blue); border-radius: 10px; flex: 1; min-width: 280px; }
+
 .system-btn {
     padding: 12px 30px; border: 2px solid var(--blue); color: var(--blue);
     text-decoration: none; border-radius: 5px; transition: 0.4s; background: transparent;
     cursor: pointer; font-weight: bold; margin-top: 15px; display: inline-block;
 }
+.system-btn:hover:not(:disabled) { background: var(--blue); color: black; box-shadow: 0 0 30px var(--blue); }
+.locked-btn { border-color: #555; color: #555; cursor: not-allowed; }
 
-.system-btn:hover { background: var(--blue); color: black; box-shadow: 0 0 30px var(--blue); }
-
-.laws-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; max-width: 1000px; width: 100%; }
+.laws-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; width: 100%; max-width: 1000px; }
 .law-item { background: rgba(20,20,20,0.8); padding: 15px; border-right: 4px solid var(--purple); text-align: right; }
-.law-item span { color: var(--blue); font-weight: bold; margin-left: 10px; }
+
+.coming-soon { color: var(--purple); animation: pulse 2s infinite; font-weight: bold; margin-top: 10px; }
+@keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; text-shadow: 0 0 10px var(--purple); } }
 
 .menu-icon { display: none; font-size: 2rem; color: var(--blue); cursor: pointer; }
 
-/* التجاوب مع الموبايل */
 @media (max-width: 768px) {
-    .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: black; flex-direction: column; padding: 20px; }
+    .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: black; flex-direction: column; padding: 20px; border-bottom: 2px solid var(--blue); }
     .nav-links.active { display: flex; }
     .menu-icon { display: block; }
-    h2 { font-size: 1.5rem; }
 }
