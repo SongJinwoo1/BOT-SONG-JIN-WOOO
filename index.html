@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الملك | SOLO SYSTEM</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="system-nav">
+        <div class="logo">
+            <img src="photo_5821173209150196869_y (1).jpg" alt="الشعار الأساسي">
+        </div>
+        <div class="nav-links">
+            <a href="#monarch">الملك</a>
+            <a href="#commands">الأوامر</a>
+            <a href="#guilds">النقابات</a>
+            <a href="#laws">الدستور</a>
+            <a href="#store">المتجر</a>
+            <a href="#sys">SYS</a>
+            <a href="#ranks">الرتب</a>
+        </div>
+    </nav>
+
+    <main class="system-container">
+
+        <section id="monarch" class="gate-section">
+            <img src="photo_5823313378468892156_y.jpg" class="section-banner" alt="Monarch">
+            <h1 class="glitch-text">تواصل مع الملك</h1>
+            <p class="monarch-quote">"أنا أتطور.. فلا تضيع وقت الحاكم."</p>
+            <a href="https://wa.me/965997805334" target="_blank" class="system-btn monarch-btn">فتح بوابة التواصل</a>
+        </section>
+
+        <section id="commands" class="gate-section">
+            <img src="photo_5823313378468892172_y.jpg" class="section-banner" alt="Commands">
+            <h2>مجمع التطويرات</h2>
+            <div class="btn-group">
+                <a href="https://whatsapp.com/channel/0029VbCMlkj2ER6nzLnwpO3G" target="_blank" class="system-btn">قناة الإعلانات</a>
+                <a href="https://chat.whatsapp.com/JILd7b6sW0JFk4bYPVzRrw?mode=gi_t" target="_blank" class="system-btn">جروب التجارب</a>
+            </div>
+        </section>
+
+        <section id="guilds" class="gate-section">
+            <h2>قاعة النقابات</h2>
+            <div class="guild-container">
+                <div class="guild-card">
+                    <h3>⏣╷نــقــابــة اكـلـيـبـس • 南‌‏東</h3>
+                    <p>المميزات: تفاعل أسطوري، فعاليات، جوائز مادية.</p>
+                    <button onclick="selectGuild('Eclipse')" class="system-btn" id="guildBtn">انضم للنقابة</button>
+                </div>
+            </div>
+            <p id="guildStatus" class="status-msg"></p>
+        </section>
+
+        <section id="laws" class="gate-section">
+            <h2 class="purple-glow">دستور مانا الملك (9 قوانين)</h2>
+            <div class="laws-grid">
+                <div class="law-item"><span>1</span> أنا أتطور في صمت.. الخضوع أو الفناء.</div>
+                <div class="law-item"><span>2</span> الظلام للقوة لا للانحلال.. لا للمحتوى المخل.</div>
+                <div class="law-item"><span>3</span> أسرار المملكة مقدسة.. يمنع كشف ستر الآخرين.</div>
+                <div class="law-item"><span>4</span> لا تغرق النظام بكلمات تافهة.. يمنع السبام.</div>
+                <div class="law-item"><span>5</span> ولاء واحد لملك واحد.. نقابة واحدة فقط.</div>
+                <div class="law-item"><span>6</span> حقوق التطوير للملك وحده.. لا تنسب العمل لنفسك.</div>
+                <div class="law-item"><span>7</span> الثغرات للإبلاغ لا للاستغلال.. وإلا سُحقت.</div>
+                <div class="law-item"><span>8</span> أرض فالكيري للصيادين فقط.. يمنع نشر الروابط الخارجية.</div>
+                <div class="law-item"><span>9</span> قرار الملك هو القدر.. لا نقاش ولا تراجع.</div>
+            </div>
+        </section>
+
+        <section id="store" class="gate-section">
+            <img src="photo_5823313378468892170_y.jpg" class="section-banner" alt="Store">
+            <h2>معرض الأعمال والأدوات</h2>
+            <p>هنا تكمن كنوز "إقليم فالكيري".</p>
+            <a href="#" class="system-btn">تصفح المتجر</a>
+        </section>
+
+        <section id="updates" class="gate-section">
+            <img src="photo_5823313378468892173_y.jpg" class="section-banner" alt="SYS Updates">
+            <h2>سجل النظام (SYS LOG)</h2>
+            <div class="log-box">
+                <p>[2026-02-21] تم رفع بروتوكول الملك الجديد.</p>
+                <p>[V 1.0.0] تفعيل خلفية المانا الزرقاء والبنفسجية.</p>
+            </div>
+        </section>
+
+        <section id="ranks" class="gate-section">
+            <img src="photo_5823313378468892171_y.jpg" class="section-banner" alt="Ranks">
+            <h2>لوحة تصنيف الصيادين</h2>
+            <div class="rank-card">
+                <p>صياد الرتبة العليا: <strong>الملك</strong></p>
+                <p>الحالة: قيد التطور المستمر</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
