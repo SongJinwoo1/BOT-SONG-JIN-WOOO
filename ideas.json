@@ -1,8 +1,28 @@
 {
+  "monarch_profile": {
+    "owner": "𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐",
+    "status": "Leveling Up",
+    "rank": "S-Rank Monarch",
+    "motto": "أنا أتطور.. فلا تضيع وقت الحاكم",
+    "contact": "+96597805334",
+    "guilds": [
+      {
+        "name": "Eclipse",
+        "status": "Active",
+        "link": "https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5"
+      },
+      {
+        "name": "Espada",
+        "status": "Coming Soon",
+        "link": "Locked"
+      }
+    ],
+    "rules_count": 9
+  },
   "system_archives": {
-    "monarch": "The Monarch",
     "project": "Solo Leveling Kingdom",
-    "total_slots": 100
+    "total_slots": 100,
+    "current_ideas_count": 5
   },
   "ideas": [
     {
@@ -21,13 +41,13 @@
       "rank": "S",
       "title": "بوابة تواصل الملك",
       "status": "Linked",
-      "description": "ربط مباشر برقم المطور الرسمي عبر الواتساب."
+      "description": "ربط مباشر برقم المطور الرسمي عبر الواتساب الخاص."
     },
     {
       "rank": "B",
       "title": "دستور الجبروت",
       "status": "Deployed",
-      "description": "القوانين التسعة الصارمة التي تحكم تصرفات الصيادين داخل البوت."
+      "description": "القوانين التسعة الصارمة التي تحكم تصرفات الصيادين داخل البوت والموقع."
     },
     {
       "rank": "A",
