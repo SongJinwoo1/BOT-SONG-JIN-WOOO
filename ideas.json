@@ -1,0 +1,39 @@
+{
+  "system_archives": {
+    "monarch": "The Monarch",
+    "project": "Solo Leveling Kingdom",
+    "total_slots": 100
+  },
+  "ideas": [
+    {
+      "rank": "S",
+      "title": "نظام الولاء المطلق",
+      "status": "Completed",
+      "description": "منع الصيادين من تغيير النقابة لضمان قوة المملكة."
+    },
+    {
+      "rank": "A",
+      "title": "مانا الجزيئات",
+      "status": "Active",
+      "description": "خلفية متحركة باللون الأزرق والبنفسجي تتفاعل مع طاقة المستخدم."
+    },
+    {
+      "rank": "S",
+      "title": "بوابة تواصل الملك",
+      "status": "Linked",
+      "description": "ربط مباشر برقم المطور الرسمي عبر الواتساب."
+    },
+    {
+      "rank": "B",
+      "title": "دستور الجبروت",
+      "status": "Deployed",
+      "description": "القوانين التسعة الصارمة التي تحكم تصرفات الصيادين داخل البوت."
+    },
+    {
+      "rank": "A",
+      "title": "نظام الأقاليم",
+      "status": "Planning",
+      "description": "توسيع المملكة لتشمل إقليم فالكيري وأقاليم أخرى مستقبلاً."
+    }
+  ]
+}
