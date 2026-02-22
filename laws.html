@@ -3,34 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دستور مانا الملك | 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</title>
+    <title>دستور مانا الملك | Laws</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* تنسيق خاص ببطاقات القوانين */
+        .laws-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .law-card {
+            background: rgba(0, 20, 40, 0.8);
+            border: 2px solid var(--blue);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: right;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+        }
+        .law-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px var(--blue);
+            background: rgba(0, 40, 80, 0.9);
+        }
+        .law-number {
+            color: var(--blue);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+            border-bottom: 1px solid var(--blue);
+            width: fit-content;
+        }
+        .law-text {
+            line-height: 1.6;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body class="laws-page">
+<body>
     <canvas id="particleCanvas"></canvas>
 
-    <div class="laws-container">
-        <div class="laws-hero">
-            <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4511.jpeg" alt="Mana Laws">
-            <h1 class="glitch purple-glow">دستور مانا الملك</h1>
+    <div class="gate-section">
+        <img src="IMG_4517.jpeg" class="section-banner" alt="دستور مانا الملك">
+        
+        <h1 class="glitch">دستور مانا الملك</h1>
+        <p style="margin-bottom: 30px; color: var(--blue);">9 قوانين تحكم عالم الصيادين</p>
+
+        <div class="laws-grid">
+            <div class="law-card">
+                <span class="law-number">LAW 01</span>
+                <p class="law-text">أنا أتطور في صمت.. الخضوع أو الفناء.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 02</span>
+                <p class="law-text">لا للمتجرون بالعدل.. الظلم للقوة فقط.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 03</span>
+                <p class="law-text">أسرار المملكة مقدسة.. يمنع كشف الستر.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 04</span>
+                <p class="law-text">يمنع التساؤل أو زعزعة النظام.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 05</span>
+                <p class="law-text">ولاء واحد.. نقابة واحدة فقط.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 06</span>
+                <p class="law-text">الحقوق للملك.. لا تسرق جهدي.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 07</span>
+                <p class="law-text">الميزات لترقية استحقاقها يعني مصلحتك.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 08</span>
+                <p class="law-text">يمنع الروابط الخارجية.. أرضاً للصيادين.</p>
+            </div>
+            <div class="law-card">
+                <span class="law-number">LAW 09</span>
+                <p class="law-text">قرار الملك هو القدر.. لا تراجع.</p>
+            </div>
         </div>
 
-        <div class="laws-list">
-            <div class="law-item"><span>1</span> أنا أتطور في صمت.. الخضوع أو الفناء.</div>
-            <div class="law-item"><span>2</span> لا للمحتوى المخل.. الظلام للقوة فقط.</div>
-            <div class="law-item"><span>3</span> أسرار المملكة مقدسة.. يمنع كشف الستر.</div>
-            <div class="law-item"><span>4</span> يمنع السبام.. لا ترهق النظام.</div>
-            <div class="law-item"><span>5</span> ولاء واحد.. نقابة واحدة فقط.</div>
-            <div class="law-item"><span>6</span> الحقوق للملك.. لا تسرق جهدي.</div>
-            <div class="law-item"><span>7</span> الثغرات للإبلاغ.. استغلالها يعني سحقك.</div>
-            <div class="law-item"><span>8</span> يمنع الروابط الخارجية.. أرضنا للصيادين.</div>
-            <div class="law-item"><span>9</span> قرار الملك هو القدر.. لا تراجع.</div>
-        </div>
-
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="index.html" class="system-btn">العودة للبوابة الرئيسية</a>
-        </div>
+        <a href="index.html" class="system-btn" style="margin-top: 40px;">العودة للبوابة الرئيسية</a>
     </div>
 
     <script src="script.js"></script>
