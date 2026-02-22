@@ -4,7 +4,6 @@
     --purple: #8a2be2;
     --bg: #050505;
     --card-bg: rgba(15, 15, 25, 0.9);
-    --locked-gray: #444;
 }
 
 * { 
@@ -18,10 +17,9 @@ body {
     color: white; 
     font-family: 'Tajawal', sans-serif; 
     overflow-x: hidden; 
-    line-height: 1.6;
 }
 
-/* جزيئات المانا في الخلفية */
+/* جزيئات المانا الملكية (أزرق وبنفسجي) */
 #particleCanvas { 
     position: fixed; 
     top: 0; 
@@ -31,12 +29,12 @@ body {
     z-index: -1; 
 }
 
-/* الهيدر والملاحة */
+/* الهيدر */
 .system-nav {
     position: fixed; 
     top: 0; 
     width: 100%; 
-    background: rgba(0,0,0,0.95);
+    background: rgba(0,0,0,0.9);
     padding: 10px 5%; 
     display: flex; 
     justify-content: space-between; 
@@ -49,56 +47,11 @@ body {
     height: 50px; 
     border-radius: 50%; 
     border: 2px solid var(--blue); 
-    box-shadow: 0 0 10px var(--blue); 
 }
 
-.nav-links a { 
-    color: white; 
-    text-decoration: none; 
-    margin: 0 10px; 
-    font-weight: bold; 
-    transition: 0.3s; 
-    font-size: 0.9rem; 
-}
-
-.nav-links a:hover { 
-    color: var(--blue); 
-    text-shadow: 0 0 10px var(--blue); 
-}
-
-/* الأقسام وتنسيق البوابات */
-.gate-section { 
-    min-height: 100vh; 
-    padding: 120px 20px 40px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-}
-
-.section-banner { 
-    width: 100%; 
-    max-width: 700px; 
-    border-radius: 15px; 
-    border: 2px solid var(--purple); 
-    box-shadow: 0 0 20px var(--purple); 
-    margin-bottom: 20px; 
-}
-
-.glitch { 
-    font-family: 'Orbitron', sans-serif; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-}
-
-.purple-glow { 
-    color: white; 
-    text-shadow: 0 0 15px var(--purple), 0 0 30px var(--purple); 
-}
-
-/* نظام الأزرار */
+/* نظام الأزرار الأساسي */
 .system-btn {
-    padding: 12px 35px; 
+    padding: 12px 30px; 
     border: 2px solid var(--blue); 
     color: var(--blue);
     text-decoration: none; 
@@ -107,141 +60,60 @@ body {
     background: transparent;
     cursor: pointer; 
     font-weight: bold; 
-    margin-top: 15px; 
     display: inline-block;
-    font-family: 'Tajawal', sans-serif;
+    margin-top: 10px;
 }
 
-.system-btn:hover:not(:disabled):not(.locked-btn) { 
+.system-btn:hover:not(.locked-btn) { 
     background: var(--blue); 
     color: black; 
-    box-shadow: 0 0 30px var(--blue); 
-    transform: translateY(-3px);
+    box-shadow: 0 0 20px var(--blue); 
 }
 
-/* كلاس القفل والحرمان (هام جداً) */
+/* --- إضافة نظام القفل (التعديل الجديد) --- */
 .locked-btn {
     background: #222 !important;
-    color: var(--locked-gray) !important;
+    color: #555 !important;
     border-color: #333 !important;
     cursor: not-allowed !important;
+    opacity: 0.6;
     box-shadow: none !important;
-    text-shadow: none !important;
     transform: none !important;
-    opacity: 0.7;
+}
+
+/* أقسام الموقع */
+.gate-section { 
+    padding: 100px 20px; 
+    text-align: center; 
+    min-height: 100vh;
+}
+
+.section-banner { 
+    width: 100%; 
+    max-width: 600px; 
+    border-radius: 15px; 
+    border: 2px solid var(--purple); 
+    margin-bottom: 20px; 
 }
 
 /* بطاقات النقابات */
 .guilds-wrapper { 
     display: flex; 
     gap: 20px; 
-    flex-wrap: wrap; 
     justify-content: center; 
-    width: 100%; 
-    max-width: 1000px; 
+    flex-wrap: wrap; 
 }
 
 .guild-card { 
     background: var(--card-bg); 
-    padding: 25px; 
+    padding: 20px; 
     border: 1px solid var(--blue); 
     border-radius: 10px; 
-    flex: 1; 
-    min-width: 280px; 
-    transition: 0.3s; 
+    width: 300px; 
 }
 
-.guild-card:hover { 
-    border-color: var(--purple); 
-    box-shadow: 0 0 15px var(--purple); 
-}
-
-/* تنسيق صفحة القوانين (laws.html) */
-.laws-container { 
-    max-width: 900px; 
-    margin: 40px auto; 
-    padding: 20px; 
-}
-
-.laws-hero { 
-    text-align: center; 
-    margin-bottom: 50px; 
-}
-
-.laws-hero img { 
-    width: 100%; 
-    max-width: 450px; 
-    border-radius: 20px; 
-    border: 3px solid var(--purple); 
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6); 
-}
-
-.laws-list { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 15px; 
-}
-
-.law-item { 
-    background: rgba(20, 20, 30, 0.85); 
-    padding: 20px; 
-    border-right: 4px solid var(--blue); 
-    border-radius: 8px; 
-    display: flex; 
-    align-items: center; 
-    transition: 0.3s;
-}
-
-.law-item:hover { 
-    background: rgba(30, 30, 50, 0.95); 
-    transform: translateX(-10px); 
-    border-color: var(--purple); 
-}
-
-.law-item span { 
-    background: var(--blue); 
-    color: black; 
-    min-width: 35px; 
-    height: 35px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    margin-left: 20px; 
-    font-weight: bold; 
-}
-
-/* الأنيميشن والشاشات */
 .coming-soon { 
     color: var(--purple); 
-    animation: pulse 2s infinite; 
-    font-weight: bold; 
-}
-
-@keyframes pulse { 
-    0%, 100% { opacity: 0.5; } 
-    50% { opacity: 1; text-shadow: 0 0 10px var(--purple); } 
-}
-
-.menu-icon { 
-    display: none; 
-    font-size: 2rem; 
-    color: var(--blue); 
-    cursor: pointer; 
-}
-
-@media (max-width: 768px) {
-    .nav-links { 
-        display: none; 
-        position: absolute; 
-        top: 70px; 
-        left: 0; 
-        width: 100%; 
-        background: black; 
-        flex-direction: column; 
-        padding: 20px; 
-        border-bottom: 2px solid var(--blue); 
-    }
-    .nav-links.active { display: flex; }
-    .menu-icon { display: block; }
+    font-style: italic; 
+    margin: 10px 0;
 }
