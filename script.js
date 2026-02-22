@@ -54,26 +54,35 @@ init(); animate();
 // --- نظام القائمة ---
 function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
-// --- نظام الولاء المطلق (تطويرك الخاص) ---
+// --- نظام الولاء المطور (الحل النهائي) ---
 function selectGuild(name, isLocked = false) {
     const savedGuild = localStorage.getItem('myGuild');
     
     if (savedGuild) {
-        alert("⚠️ نظام سـونـغ جـيـن وو: لقد اخترت ولاءك بالفعل لنقابة [" + savedGuild + "]. لا يمكن تغيير القدر.");
-        if (event) event.preventDefault();
-        return false;
-    } else {
-        // تسجيل الولاء فوراً في الذاكرة
+        // إذا كان يحاول الدخول لنفس نقابته المسجلة، اسمح له بالعبور
+        if (savedGuild === name && !isLocked) {
+            return true; 
+        } 
+        // إذا كان يحاول الدخول لنقابة مختلفة، اظهر رسالة القدر
+        else {
+            alert("⚠️ نظام سـونـغ جـيـن وو: لقد اخترت ولاءك بالفعل لنقابة [" + savedGuild + "]. لا يمكن تغيير القدر.");
+            if (window.event) window.event.preventDefault();
+            return false;
+        }
+    } 
+    
+    // تسجيل الولاء لأول مرة
+    else {
         localStorage.setItem('myGuild', name);
         
         if (isLocked) {
-            alert("⚠️ لقد اخترت الولاء لنقابة [" + name + "] وهي مغلقة حالياً. لقد ضاع مستقبلك في الظلال، لا يمكنك اختيار نقابة أخرى.");
+            alert("⚠️ لقد اخترت الولاء لنقابة [" + name + "] وهي مغلقة حالياً. لقد ضاع مستقبلك في الظلال.");
+            if (window.event) window.event.preventDefault();
+            return false;
         } else {
             alert("✅ تم الاستيقاظ: أنت الآن فرد من " + name + ". سيتم قفل اختيارك للأبد.");
+            return true; 
         }
-        
-        // منع الانتقال للرابط إذا كانت النقابة مغلقة
-        if (isLocked && event) event.preventDefault();
     }
 }
 
@@ -84,4 +93,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         if (window.innerWidth <= 768) toggleMenu();
     });
+});
+
+window.addEventListener('resize', () => {
+    canvas.width = innerWidth; canvas.height = innerHeight; init();
 });
