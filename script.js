@@ -1,3 +1,4 @@
+// --- محرك جزيئات المانا ---
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -19,25 +20,34 @@ function init() { for (let i = 0; i < 120; i++) particles.push(new Particle()); 
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-function selectGuild(name, isLocked = false) {
-    const saved = localStorage.getItem('myGuild');
-    if (saved) {
-        if (saved === name && !isLocked) return true;
-        alert("⚠️ نظام سـونـغ جـيـن وو: لقد اخترت ولاءك بالفعل لـ [" + saved + "]. لا يمكن تغيير القدر.");
-        if (window.event) window.event.preventDefault(); return false;
+// --- نظام التحكم في الفروع وهيبة الظلال ---
+function branchClosed(branchName) {
+    const shadowMessage = `
+    ⚠️ تنبيه من نظام الظلال:
+    --------------------------
+    الفرع: [ ${branchName} ]
+    الحالة: قيد الاستدعاء من العدم.. (قريباً)
+    
+    عذراً أيها الصياد، "سـونـغ جـيـن وو" لم يأمر بفتح هذه البوابة بعد. 
+    إذا كنت تستعجل القوة، تواصل مع الحاكم مباشرة.
+    `;
+    if (confirm(shadowMessage + "\n\nهل تريد فتح بوابة التواصل مع الحاكم الآن؟")) {
+        window.open("https://wa.me/96597805334", "_blank"); // رقمك المسجل [cite: 2026-02-21]
     }
+}
+
+function selectGuild(name, isLocked = false) {
+    if (isLocked) { branchClosed(`نقابة ${name}`); return false; }
+    const saved = localStorage.getItem('myGuild');
+    if (saved) { alert(`⚠️ النظام: ولاؤك محجوز بالفعل لنقابة [${saved}].`); return false; }
     localStorage.setItem('myGuild', name);
-    if (isLocked) { alert("⚠️ اخترت نقابة مغلقة [" + name + "]. تم قفل قدرك."); if (window.event) window.event.preventDefault(); return false; }
-    alert("✅ تم الاستيقاظ: أنت الآن فرد من " + name + "."); return true;
+    alert(`✅ تم الاستيقاظ! أهلاً بك في صفوف ${name}.`); return true;
 }
 
 function checkLoyalty(branch) {
     const saved = localStorage.getItem('myGuild');
-    if (!saved) {
-        alert("⚠️ خطأ في الوصول: يجب اختيار ولاءك في قاعة النقابات أولاً لدخول " + branch);
-        if (window.event) window.event.preventDefault(); return false;
-    }
-    alert("✅ جاري التحقق... أهلاً بك يا عضو " + saved + ". يتم فتح " + branch); return true;
+    if (!saved) { alert(`⚠️ خطأ نظام: الوصول لـ ${branch} يتطلب اختيار نقابة أولاً!`); return false; }
+    const closedBranches = ['المتجر', 'SYS', 'التصنيف', 'الأوامر'];
+    if (closedBranches.includes(branch)) { branchClosed(branch); return false; }
+    return true;
 }
-
-function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
