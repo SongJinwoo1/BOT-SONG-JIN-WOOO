@@ -4,95 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نظام 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐 | SOLO SYSTEM</title>
-    
-    <meta name="description" content="الموقع الرسمي للقائد 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐 - تطوير أنظمة، نقابة اكليبس، وتطوير الأنظمة البرمجية.">
-    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <canvas id="particleCanvas"></canvas>
 
     <nav class="system-nav">
-        <div class="logo">
-            <img src="photo_5821173209150196869_y (1).jpg" alt="Logo">
-        </div>
+        <div class="logo"><img src="photo_5821173209150196869_y (1).jpg" alt="Logo"></div>
         <div class="nav-links" id="navLinks">
             <a href="#monarch">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</a>
-            <a href="#commands">الأوامر</a>
             <a href="#guilds">النقابات</a>
             <a href="laws.html">الدستور</a>
-            <a href="#store">المتجر</a>
-            <a href="#sys">SYS</a>
-            <a href="#ranks">الرتب</a>
         </div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
     <main class="system-container">
-
-        <section id="monarch" class="gate-section">
-            <img src="photo_5823313378468892156_y.jpg" class="section-banner" alt="Song Jin Woo">
-            <h1 class="glitch">تواصل مع 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</h1>
-            <p>"أنا أتطور.. فلا تضيع وقت الحاكم."</p>
-            <a href="https://wa.me/96597805334" target="_blank" class="system-btn">فتح بوابة التواصل الخاص</a>
-        </section>
-
-        <section id="commands" class="gate-section">
-            <img src="photo_5823313378468892172_y.jpg" class="section-banner" alt="Commands">
-            <h2>مجمع التطويرات</h2>
-            <div class="btn-group">
-                <a href="https://whatsapp.com/channel/0029VbCMlkj2ER6nzLnwpO3G" target="_blank" class="system-btn">قناة الإعلانات</a>
-                <a href="https://chat.whatsapp.com/JILd7b6sW0JFk4bYPVzRrw?mode=gi_t" target="_blank" class="system-btn">جروب التجارب</a>
-            </div>
-        </section>
-
         <section id="guilds" class="gate-section">
             <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4507.jpeg" class="section-banner" alt="Guild Hall">
             <h2>قاعة النقابات</h2>
             <div class="guilds-wrapper">
-                
                 <div class="guild-card">
                     <h3>⏣╷نــقــابــة اكـلـيـس • 南‌‏東</h3>
                     <p>الولاء للأقوى فقط.</p>
                     <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" target="_blank" 
                        onclick="return selectGuild('اكليبس')" class="system-btn">انضم للنقابة</a>
                 </div>
-
                 <div class="guild-card">
                     <h3>⚔️ نــقــابــة اسـبـادا • ESPADA</h3>
                     <p class="coming-soon">قريباً.. استيقاظ الظلال</p>
                     <button onclick="selectGuild('اسبادا', true)" class="system-btn locked-btn">مغلق حالياً</button>
                 </div>
-
             </div>
-        </section>
-
-        <section id="laws" class="gate-section">
-            <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4511.jpeg" class="section-banner" alt="Laws Banner">
-            <h2 class="purple-glow">دستور مانا الملك</h2>
-            <div class="btn-group">
-                <a href="laws.html" class="system-btn">استدعاء القوانين التسعة</a>
-            </div>
-        </section>
-
-        <section id="store" class="gate-section">
-            <img src="photo_5823313378468892170_y.jpg" class="section-banner" alt="Store">
-            <h2>المتجر الملكي</h2>
-            <div class="coming-soon">قريباً.. يتم تجهيز العتاد</div>
-        </section>
-
-        <section id="updates" class="gate-section">
-            <img src="photo_5823313378468892173_y.jpg" class="section-banner" alt="SYS">
-            <h2>سجل النظام (SYS)</h2>
-            <div class="coming-soon">قريباً.. استخراج البيانات مستمر</div>
-        </section>
-
-        <section id="ranks" class="gate-section">
-            <img src="photo_5823313378468892171_y.jpg" class="section-banner" alt="Ranks">
-            <h2>لوحة التصنيف</h2>
-            <div class="rank-card">رتبة الحاكم: S-RANK</div>
         </section>
     </main>
 
