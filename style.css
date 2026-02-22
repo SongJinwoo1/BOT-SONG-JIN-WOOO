@@ -1,46 +1,13 @@
-:root {
-    --blue: #00d4ff;
-    --purple: #8a2be2;
-    --bg: #050505;
-}
-
+:root { --blue: #00d4ff; --purple: #8a2be2; --bg: #050505; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; overflow-x: hidden; }
-
+body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 #particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-
-.system-nav {
-    position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9);
-    padding: 10px 5%; display: flex; justify-content: space-between; align-items: center;
-    z-index: 1000; border-bottom: 2px solid var(--blue);
-}
-
+.system-nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 2px solid var(--blue); }
 .logo img { height: 50px; border-radius: 50%; border: 2px solid var(--blue); box-shadow: 0 0 10px var(--blue); }
-
-.system-btn {
-    padding: 12px 30px; border: 2px solid var(--blue); color: var(--blue);
-    text-decoration: none; border-radius: 5px; transition: 0.4s; background: transparent;
-    cursor: pointer; font-weight: bold; display: inline-block; margin-top: 10px;
-}
-
-.system-btn:hover:not(.locked-btn) { background: var(--blue); color: black; box-shadow: 0 0 20px var(--blue); }
-
-/* كلاس الحرمان */
-.locked-btn {
-    background: #222 !important;
-    color: #555 !important;
-    border-color: #333 !important;
-    cursor: not-allowed !important;
-    opacity: 0.6;
-    box-shadow: none !important;
-}
-
-.gate-section { padding: 120px 20px 60px; text-align: center; min-height: 100vh; }
-.section-banner { width: 100%; max-width: 600px; border-radius: 15px; border: 2px solid var(--purple); margin-bottom: 20px; }
-
+.system-btn { padding: 12px 30px; border: 2px solid var(--blue); color: var(--blue); text-decoration: none; border-radius: 5px; transition: 0.4s; background: transparent; cursor: pointer; font-weight: bold; display: inline-block; margin-top: 10px; text-align: center; }
+.system-btn:hover { background: var(--blue); color: black; box-shadow: 0 0 20px var(--blue); transform: scale(1.05); }
+.gate-section { padding: 120px 20px 60px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 1px solid rgba(138, 43, 226, 0.2); }
+.section-banner { width: 100%; max-width: 600px; border-radius: 15px; border: 2px solid var(--purple); margin-bottom: 20px; box-shadow: 0 0 20px var(--purple); }
 .guilds-wrapper { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 .guild-card { background: rgba(15, 15, 25, 0.9); padding: 25px; border: 1px solid var(--blue); border-radius: 10px; width: 300px; }
-
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* يفضل تفعيل الـ toggleMenu برمجياً */
-}
+.glitch { font-family: 'Orbitron', sans-serif; text-shadow: 0 0 10px var(--blue); }
