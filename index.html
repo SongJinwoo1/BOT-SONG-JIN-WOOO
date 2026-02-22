@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐 | SOLO SYSTEM</title>
+    <title>Solo Leveling System | 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -11,30 +11,41 @@
     <canvas id="particleCanvas"></canvas>
 
     <nav class="system-nav">
-        <div class="logo"><img src="photo_5821173209150196869_y (1).jpg" alt="Logo"></div>
+        <div class="logo">
+            <img src="photo_5821173209150196869_y (1).jpg" alt="Logo">
+        </div>
         <div class="nav-links" id="navLinks">
             <a href="#monarch">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</a>
             <a href="#guilds">النقابات</a>
             <a href="laws.html">الدستور</a>
+            <a href="#store">المتجر</a>
         </div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
     <main class="system-container">
+        <section id="monarch" class="gate-section">
+            <img src="photo_5823313378468892156_y.jpg" class="section-banner" alt="Monarch">
+            <h1 class="glitch">تواصل مع 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</h1>
+            <p>"أنا أتطور.. فلا تضيع وقت الحاكم."</p>
+            <a href="https://wa.me/96597805334" target="_blank" class="system-btn">فتح بوابة التواصل</a>
+        </section>
+
         <section id="guilds" class="gate-section">
             <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4507.jpeg" class="section-banner" alt="Guild Hall">
             <h2>قاعة النقابات</h2>
             <div class="guilds-wrapper">
                 <div class="guild-card">
-                    <h3>⏣╷نــقــابــة اكـلـيـس • 南‌‏東</h3>
+                    <h3>⏣╷نــقــابــة اكـلـيس • 南‌‏東</h3>
                     <p>الولاء للأقوى فقط.</p>
                     <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" target="_blank" 
-                       onclick="return selectGuild('اكليبس')" class="system-btn">انضم للنقابة</a>
+                       onclick="return selectGuild('Eclipse')" class="system-btn">انضم للنقابة</a>
                 </div>
+
                 <div class="guild-card">
                     <h3>⚔️ نــقــابــة اسـبـادا • ESPADA</h3>
                     <p class="coming-soon">قريباً.. استيقاظ الظلال</p>
-                    <button onclick="selectGuild('اسبادا', true)" class="system-btn locked-btn">مغلق حالياً</button>
+                    <button onclick="selectGuild('ESPADA', true)" class="system-btn">مغلق حالياً</button>
                 </div>
             </div>
         </section>
