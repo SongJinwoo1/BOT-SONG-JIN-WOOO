@@ -1,4 +1,4 @@
-// --- إعداد نظام مانا الجزيئات (أزرق وبنفسجي) ---
+// --- إعداد مانا الجزيئات (أزرق وبنفسجي) ---
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -54,16 +54,16 @@ init(); animate();
 // --- نظام القائمة ---
 function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
 
-// --- نظام الولاء المطور (الحل النهائي) ---
+// --- نظام الولاء المطور (حل مشكلة الدخول لنفس النقابة) ---
 function selectGuild(name, isLocked = false) {
     const savedGuild = localStorage.getItem('myGuild');
     
     if (savedGuild) {
-        // إذا كان يحاول الدخول لنفس نقابته المسجلة، اسمح له بالعبور
+        // إذا كان المستخدم مسجلاً بالفعل في هذه النقابة وهي مفتوحة، اسمح له بالدخول
         if (savedGuild === name && !isLocked) {
             return true; 
         } 
-        // إذا كان يحاول الدخول لنقابة مختلفة، اظهر رسالة القدر
+        // إذا كان يحاول دخول نقابة مختلفة، امنعه بـ window.event
         else {
             alert("⚠️ نظام سـونـغ جـيـن وو: لقد اخترت ولاءك بالفعل لنقابة [" + savedGuild + "]. لا يمكن تغيير القدر.");
             if (window.event) window.event.preventDefault();
@@ -74,7 +74,6 @@ function selectGuild(name, isLocked = false) {
     // تسجيل الولاء لأول مرة
     else {
         localStorage.setItem('myGuild', name);
-        
         if (isLocked) {
             alert("⚠️ لقد اخترت الولاء لنقابة [" + name + "] وهي مغلقة حالياً. لقد ضاع مستقبلك في الظلال.");
             if (window.event) window.event.preventDefault();
@@ -93,8 +92,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         if (window.innerWidth <= 768) toggleMenu();
     });
-});
-
-window.addEventListener('resize', () => {
-    canvas.width = innerWidth; canvas.height = innerHeight; init();
 });
