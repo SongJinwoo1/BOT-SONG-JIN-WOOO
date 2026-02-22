@@ -3,98 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دستور مانا الملك | Laws</title>
+    <title>Solo Leveling | 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* تنسيق خاص ببطاقات القوانين */
-        .laws-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            width: 100%;
-            max-width: 1000px;
-        }
-        .law-card {
-            background: rgba(0, 20, 40, 0.8);
-            border: 2px solid var(--blue);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: right;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
-        }
-        .law-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px var(--blue);
-            background: rgba(0, 40, 80, 0.9);
-        }
-        .law-number {
-            color: var(--blue);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
-            border-bottom: 1px solid var(--blue);
-            width: fit-content;
-        }
-        .law-text {
-            line-height: 1.6;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
     <canvas id="particleCanvas"></canvas>
 
-    <div class="gate-section">
-        <img src="IMG_4517.jpeg" class="section-banner" alt="دستور مانا الملك">
-        
-        <h1 class="glitch">دستور مانا الملك</h1>
-        <p style="margin-bottom: 30px; color: var(--blue);">9 قوانين تحكم عالم الصيادين</p>
-
-        <div class="laws-grid">
-            <div class="law-card">
-                <span class="law-number">LAW 01</span>
-                <p class="law-text">أنا أتطور في صمت.. الخضوع أو الفناء.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 02</span>
-                <p class="law-text">لا للمتجرون بالعدل.. الظلم للقوة فقط.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 03</span>
-                <p class="law-text">أسرار المملكة مقدسة.. يمنع كشف الستر.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 04</span>
-                <p class="law-text">يمنع التساؤل أو زعزعة النظام.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 05</span>
-                <p class="law-text">ولاء واحد.. نقابة واحدة فقط.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 06</span>
-                <p class="law-text">الحقوق للملك.. لا تسرق جهدي.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 07</span>
-                <p class="law-text">الميزات لترقية استحقاقها يعني مصلحتك.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 08</span>
-                <p class="law-text">يمنع الروابط الخارجية.. أرضاً للصيادين.</p>
-            </div>
-            <div class="law-card">
-                <span class="law-number">LAW 09</span>
-                <p class="law-text">قرار الملك هو القدر.. لا تراجع.</p>
-            </div>
+    <nav class="system-nav">
+        <div class="logo"><img src="photo_5821173209150196869_y (1).jpg" alt="Logo"></div>
+        <div class="nav-links">
+            <a href="#monarch">الحاكم</a>
+            <a href="#commands">التطويرات</a>
+            <a href="#guilds">النقابات</a>
+            <a href="#laws">الدستور</a>
+            <a href="#store">المتجر</a>
+            <a href="#sys">السجل</a>
+            <a href="#ranks">الرتب</a>
         </div>
+    </nav>
 
-        <a href="index.html" class="system-btn" style="margin-top: 40px;">العودة للبوابة الرئيسية</a>
-    </div>
+    <main class="system-container">
+        <section id="monarch" class="gate-section">
+            <img src="photo_5823313378468892156_y.jpg" class="section-banner">
+            <h1 class="glitch">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</h1>
+            <a href="https://wa.me/96597805334" target="_blank" class="system-btn">تواصل مع الحاكم</a>
+        </section>
+
+        <section id="commands" class="gate-section">
+            <img src="photo_5823313378468892172_y.jpg" class="section-banner">
+            <h2>مجمع التطويرات</h2>
+            <button onclick="checkLoyalty('التطويرات')" class="system-btn">فتح المجمع</button>
+        </section>
+
+        <section id="guilds" class="gate-section">
+            <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4507.jpeg" class="section-banner">
+            <h2>قاعة النقابات</h2>
+            <div class="guilds-wrapper">
+                <div class="guild-card">
+                    <h3>نـقـابـة اكـلـيس</h3>
+                    <p>المملكة العريقة منذ 2022.</p>
+                    <a href="javascript:void(0)" onclick="selectGuild('Eclipse')" class="system-btn">انضم للنقابة</a>
+                </div>
+                <div class="guild-card">
+                    <h3>نـقـابـة اسـبـادا</h3>
+                    <p>قريباً.. استيقاظ الظلال.</p>
+                    <button onclick="selectGuild('اسبادا', true)" class="system-btn">مغلق حالياً</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="laws" class="gate-section">
+            <img src="IMG_4517.jpeg" class="section-banner">
+            <h2>دستور مانا الملك</h2>
+            <a href="laws.html" class="system-btn">استدعاء القوانين</a>
+        </section>
+
+        <section id="store" class="gate-section">
+            <img src="photo_5823313378468892170_y.jpg" class="section-banner">
+            <h2>المتجر الملكي</h2>
+            <button onclick="checkLoyalty('المتجر')" class="system-btn">دخول المتجر</button>
+        </section>
+
+        <section id="sys" class="gate-section">
+            <img src="photo_5823313378468892173_y.jpg" class="section-banner">
+            <h2>سجل النظام SYS</h2>
+            <button onclick="checkLoyalty('SYS')" class="system-btn">عرض البيانات</button>
+        </section>
+
+        <section id="ranks" class="gate-section">
+            <img src="photo_5823313378468892171_y.jpg" class="section-banner">
+            <h2>لوحة التصنيف</h2>
+            <button onclick="checkLoyalty('التصنيف')" class="system-btn">مشاهدة الرتب</button>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
