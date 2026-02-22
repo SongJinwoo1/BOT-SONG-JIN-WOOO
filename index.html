@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo Leveling System | 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</title>
+    <title>Solo Leveling | 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -11,43 +11,69 @@
     <canvas id="particleCanvas"></canvas>
 
     <nav class="system-nav">
-        <div class="logo">
-            <img src="photo_5821173209150196869_y (1).jpg" alt="Logo">
-        </div>
+        <div class="logo"><img src="photo_5821173209150196869_y (1).jpg" alt="Logo"></div>
         <div class="nav-links" id="navLinks">
-            <a href="#monarch">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</a>
+            <a href="#monarch">الحاكم</a>
+            <a href="#commands">التطويرات</a>
             <a href="#guilds">النقابات</a>
-            <a href="laws.html">الدستور</a>
+            <a href="#laws">الدستور</a>
             <a href="#store">المتجر</a>
+            <a href="#sys">السجل</a>
+            <a href="#ranks">الرتب</a>
         </div>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
     <main class="system-container">
         <section id="monarch" class="gate-section">
-            <img src="photo_5823313378468892156_y.jpg" class="section-banner" alt="Monarch">
-            <h1 class="glitch">تواصل مع 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</h1>
-            <p>"أنا أتطور.. فلا تضيع وقت الحاكم."</p>
-            <a href="https://wa.me/96597805334" target="_blank" class="system-btn">فتح بوابة التواصل</a>
+            <img src="photo_5823313378468892156_y.jpg" class="section-banner">
+            <h1 class="glitch">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</h1>
+            <a href="https://wa.me/96597805334" target="_blank" class="system-btn">بوابة التواصل</a>
+        </section>
+
+        <section id="commands" class="gate-section">
+            <img src="photo_5823313378468892172_y.jpg" class="section-banner">
+            <h2>مجمع التطويرات</h2>
+            <button onclick="checkLoyalty('الأوامر')" class="system-btn">دخول الأوامر</button>
         </section>
 
         <section id="guilds" class="gate-section">
-            <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4507.jpeg" class="section-banner" alt="Guild Hall">
+            <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4507.jpeg" class="section-banner">
             <h2>قاعة النقابات</h2>
             <div class="guilds-wrapper">
                 <div class="guild-card">
                     <h3>⏣╷نــقــابــة اكـلـيس • 南‌‏東</h3>
-                    <p>الولاء للأقوى فقط.</p>
-                    <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" target="_blank" 
-                       onclick="return selectGuild('Eclipse')" class="system-btn">انضم للنقابة</a>
+                    <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" target="_blank" onclick="return selectGuild('Eclipse')" class="system-btn">انضم للنقابة</a>
                 </div>
-
                 <div class="guild-card">
                     <h3>⚔️ نــقــابــة اسـبـادا • ESPADA</h3>
-                    <p class="coming-soon">قريباً.. استيقاظ الظلال</p>
                     <button onclick="selectGuild('ESPADA', true)" class="system-btn">مغلق حالياً</button>
                 </div>
             </div>
+        </section>
+
+        <section id="laws" class="gate-section">
+            <img src="IMG_4517.jpeg" class="section-banner">
+            <h2>دستور مانا الملك</h2>
+            <a href="laws.html" class="system-btn">استدعاء القوانين</a>
+        </section>
+
+        <section id="store" class="gate-section">
+            <img src="photo_5823313378468892170_y.jpg" class="section-banner">
+            <h2>المتجر الملكي</h2>
+            <button onclick="checkLoyalty('المتجر')" class="system-btn">فتح المتجر</button>
+        </section>
+
+        <section id="sys" class="gate-section">
+            <img src="photo_5823313378468892173_y.jpg" class="section-banner">
+            <h2>سجل النظام SYS</h2>
+            <button onclick="checkLoyalty('السجل')" class="system-btn">البيانات</button>
+        </section>
+
+        <section id="ranks" class="gate-section">
+            <img src="photo_5823313378468892171_y.jpg" class="section-banner">
+            <h2>لوحة التصنيف</h2>
+            <button onclick="checkLoyalty('التصنيف')" class="system-btn">عرض الرتب</button>
         </section>
     </main>
 
