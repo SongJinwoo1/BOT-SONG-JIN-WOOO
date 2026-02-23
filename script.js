@@ -1,4 +1,4 @@
-// --- إعدادات الخلفية (جزيئات زرقاء وبنفسجية) ---
+// الخلفية والجزيئات
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -21,50 +21,37 @@ class Particle {
     }
     draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
 }
-function init() { for (let i = 0; i < 70; i++) particles.push(new Particle()); }
+function init() { for (let i = 0; i < 60; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-// --- نظام الولاء (المحمي - لم يتم تعديله) ---
+// نظام الولاء (محمي)
 function selectGuild(name, isLocked = false) {
     const saved = localStorage.getItem('myGuild');
-    if (saved && saved !== name) {
-        alert("⚠️ النظام لا يسمح بتغيير الولاء! أنت تنتمي بالفعل لنقابة " + saved);
-        return;
+    if (saved && saved !== name) { alert("⚠️ ولاؤك مسجل بالفعل لنقابة " + saved); return; }
+    if (isLocked) { 
+        if(confirm("⚠️ هذه النقابة مغلقة. مراسلة الحاكم؟")) window.open("https://wa.me/965997805334");
+        return; 
     }
-    if (isLocked) { branchClosed(`نقابة ${name}`); return; }
     localStorage.setItem('myGuild', name);
-    alert(`✅ تم الاستيقاظ! النظام يعترف بك الآن كعضو في [${name}].`);
-    if (name === 'Eclipse') window.open("https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5", "_blank");
+    alert("✅ تم إعلان الولاء لـ " + name);
+    if (name === 'Eclipse') window.open("https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5");
 }
 
-// --- الوظائف الجديدة (التطويرات والتعريف) ---
+// التحكم في مجمع التطويرات
 function toggleDevButtons() {
     const sub = document.getElementById('dev-sub-buttons');
     const btn = document.getElementById('dev-main-btn');
-    if (sub.style.display === 'none' || sub.style.display === '') {
-        sub.style.display = 'flex'; btn.innerText = 'إغلاق المجمع';
-    } else {
-        sub.style.display = 'none'; btn.innerText = 'فتح المجمع';
-    }
+    const isHidden = sub.style.display === 'none' || sub.style.display === '';
+    sub.style.display = isHidden ? 'flex' : 'none';
+    btn.innerText = isHidden ? 'إغلاق المجمع' : 'فتح المجمع';
 }
 
-function showGuildInfo(guild) {
-    if (guild === 'Eclipse') {
-        alert("🛡️ نقابة اكليبس:\nتأسست عام 2022، هي المملكة العريقة في إقليم فـالكـيـري. تتميز بتفاعل أسطوري وجوائز مادية للمتفاعلين.");
-    } else if (guild === 'Espada') {
-        alert("⚔️ نقابة اسبادا:\nفرع إقليمي جديد تحت التطوير، مخصص لنخبة المقاتلين في نظام الظلال.");
-    }
-}
-
-function branchClosed(name) {
-    if (confirm(`⚠️ الفرع [${name}] قيد الإنشاء حالياً.\nهل تريد مراسلة الحاكم؟`)) {
-        window.open("https://wa.me/965997805334", "_blank");
-    }
-}
-
-function checkLoyalty(branch) {
-    const saved = localStorage.getItem('myGuild');
-    if (!saved) { alert("⚠️ أعلن ولاؤك أولاً!"); window.location.href = "#guilds"; return; }
-    branchClosed(branch);
+// التحكم في بطاقات التعريف (انزلاق)
+function toggleGuildCard(id) {
+    const card = document.getElementById(id);
+    const isHidden = card.style.display === 'none' || card.style.display === '';
+    // إغلاق البطاقات الأخرى
+    document.querySelectorAll('.guild-info-card').forEach(c => c.style.display = 'none');
+    card.style.display = isHidden ? 'block' : 'none';
 }
