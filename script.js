@@ -1,4 +1,4 @@
-// 🌌 نظام مانا الخلفية (أزرق وبنفسجي)
+// 🌌 مانا الخلفية (أزرق وبنفسجي)
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -13,11 +13,11 @@ class Particle {
     update() { this.x += this.speedX; this.y += this.speedY; }
     draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
 }
-function init() { for (let i = 0; i < 45; i++) particles.push(new Particle()); }
+function init() { for (let i = 0; i < 40; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-// ⚔️ نظام إيغريس والنفي الزمني
+// ⚔️ منطق إيغريس والنفي
 let patience = 3;
 const BAN_DURATION = 24 * 60 * 60 * 1000;
 
@@ -25,17 +25,14 @@ function askIgris() {
     const q = document.getElementById('user-q').value.trim();
     const reply = document.getElementById('shadow-reply');
     if (!q) return;
-
     if (q.length < 4) {
         patience--;
         if (patience <= 0) {
-            reply.innerText = "لقد أهنت العرش بتفاهتك. اعتذر الآن أو واجه النفي!";
+            reply.innerText = "لقد أهنت العرش. اعتذر الآن أو واجه النفي!";
             document.getElementById('input-zone').style.display = "none";
             document.getElementById('lock-zone').style.display = "block";
         } else { reply.innerText = `تحدث بوقار.. بقيت لك ${patience} فرص.`; }
-    } else {
-        reply.innerText = "سجلت كلماتك في سجلات الظل.. هل لديك طلب للملك؟";
-    }
+    } else { reply.innerText = "سجلت كلماتك.. هل تود محادثة الملك؟"; }
     document.getElementById('user-q').value = "";
 }
 
@@ -48,10 +45,9 @@ function apologize() {
             localStorage.setItem('shadow_ban_end', new Date().getTime() + BAN_DURATION);
             applyBan();
         } else {
-            patience = 3;
             document.getElementById('lock-zone').style.display = "none";
             document.getElementById('input-zone').style.display = "block";
-            document.getElementById('shadow-reply').innerText = `قُبل اعتذارك (${count}/3). احذر من الثالثة!`;
+            document.getElementById('shadow-reply').innerText = `قُبل اعتذارك (${count}/3).`;
         }
     }
 }
@@ -65,7 +61,6 @@ function applyBan() {
     document.getElementById('input-zone').style.display = "none";
     document.getElementById('lock-zone').style.display = "none";
     document.getElementById('ban-zone').style.display = "block";
-    document.getElementById('shadow-reply').innerText = "تم نفيك من المملكة لمدة 24 ساعة.. ارحل.";
     startTimer();
 }
 
@@ -89,16 +84,13 @@ function startTimer() {
     }, 1000);
 }
 
-// 🛡️ درع الحماية الخفي (Anti-Hacker)
+// 🛡️ درع الحماية (F12)
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('keydown', e => {
-    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "u")) {
-        e.preventDefault();
-    }
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "u")) e.preventDefault();
 });
 setInterval(() => { debugger; }, 100);
 
-// التحقق من الحالة عند الفتح
 window.onload = function() {
     const banEnd = localStorage.getItem('shadow_ban_end');
     if (banEnd && new Date().getTime() < parseInt(banEnd)) { applyBan(); }
@@ -109,6 +101,4 @@ function toggleSlide(id, btn, openT, closeT) {
     btn.innerText = el.classList.contains('active') ? closeT : openT;
 }
 
-function sendSuggestion() {
-    window.open("https://wa.me/965997805334?text=أيها الملك، لدي اقتراح للنسخة الجديدة: ");
-}
+function sendSuggestion() { window.open("https://wa.me/965997805334?text=الملك سونغ، لدي اقتراح: "); }
