@@ -17,15 +17,14 @@
             <a href="#commands">التطويرات</a>
             <a href="#guilds">النقابات</a>
             <a href="#laws">الدستور</a>
-            <a href="#store">المتجر</a>
         </div>
     </nav>
 
     <main class="system-container">
         <section id="monarch" class="gate-section">
             <img src="photo_5823313378468892156_y.jpg" class="section-banner">
-            <h1 class="glitch">المقر الرئيسي للظلال</h1>
-            <p style="color: var(--blue); margin-bottom: 15px;">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐 - 𝑶𝒇𝒇𝒊𝒄𝒊𝒂𝒍 𝑯𝑸</p>
+            <h1 class="glitch">المقر الرئيسي</h1>
+            <p style="color: var(--blue); margin: 10px 0 20px;">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐 - 𝑶𝒇𝒇𝒊𝒄𝒊𝒂𝒍 𝑯𝑸</p>
             <a href="https://wa.me/965997805334" target="_blank" class="system-btn">اتصال مباشر بالحاكم</a>
         </section>
 
@@ -33,7 +32,6 @@
             <img src="photo_5823313378468892172_y.jpg" class="section-banner">
             <h2>مجمع التطويرات</h2>
             <button id="dev-main-btn" onclick="toggleDevButtons()" class="system-btn">فتح المجمع</button>
-            
             <div id="dev-sub-buttons" class="sub-buttons-container">
                 <a href="https://whatsapp.com/channel/0029VbCMlkj2ER6nzLnwpO3G" target="_blank" class="system-btn dev-btn-special channel-btn">📢 قناة الإعلانات</a>
                 <a href="https://chat.whatsapp.com/JILd7b6sW0JFk4bYPVzRrw?mode=gi_t" target="_blank" class="system-btn dev-btn-special group-btn">🧪 جروب التجارب</a>
@@ -49,7 +47,10 @@
                     <p>المملكة العريقة من 2022.</p>
                     <div class="guild-actions">
                         <a href="javascript:void(0)" onclick="selectGuild('Eclipse')" class="system-btn">إعلان الولاء</a>
-                        <button onclick="showGuildInfo('Eclipse')" class="system-btn info-btn">📜 تعريف النقابة</button>
+                        <button onclick="toggleGuildCard('eclipse-info')" class="system-btn info-btn">📜 تعريف النقابة</button>
+                    </div>
+                    <div id="eclipse-info" class="guild-info-card">
+                        🛡️ تأسست عام 2022. تفاعل أسطوري، مشرفين محترمين، وجوائز للمتفاعلين.
                     </div>
                 </div>
                 <div class="guild-card">
@@ -57,7 +58,10 @@
                     <p>فرع إقليمي - قيد الاستيقاظ.</p>
                     <div class="guild-actions">
                         <button onclick="selectGuild('اسبادا', true)" class="system-btn locked">مغلق حالياً</button>
-                        <button onclick="showGuildInfo('Espada')" class="system-btn info-btn">📜 تعريف النقابة</button>
+                        <button onclick="toggleGuildCard('espada-info')" class="system-btn info-btn">📜 تعريف النقابة</button>
+                    </div>
+                    <div id="espada-info" class="guild-info-card">
+                        ⚔️ فرع إقليمي جديد تابع لإقليم فالكيري. قيد التجهيز للانطلاق.
                     </div>
                 </div>
             </div>
