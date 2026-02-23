@@ -1,21 +1,89 @@
-<nav class="system-nav">
-    <div class="logo-wrapper">
-        <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/photo_5821173209150196869_y%20(1).jpg" alt="Logo">
-    </div>
-    <div class="nav-links">
-        <a href="#monarch">العرش</a>
-        <a href="#guilds">النقابات</a>
-        <a href="#store">السوق</a>
-        <a href="#sys">SYS</a>
-    </div>
-</nav>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>المقر الرئيسي | 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body id="main-body">
+    <canvas id="particleCanvas"></canvas>
 
-<section id="monarch" class="gate-section">
-    <h1 class="glitch">المقر الرئيسي</h1>
-    <div class="shadow-box">
-        <img src="IMG_4528.jpeg" alt="Igris" class="shadow-avatar">
-        <div id="shadow-reply" class="shadow-text">أنا الفارس إيغريس.. تكلم بوقار.</div>
-        <input type="text" id="user-q" placeholder="اسأل الفارس..." class="ai-input">
-        <button onclick="askIgris()" class="system-btn">إرسال</button>
-    </div>
-</section>
+    <nav class="system-nav" id="main-nav">
+        <div class="logo-wrapper">
+            <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/photo_5821173209150196869_y%20(1).jpg" alt="الملك">
+        </div>
+        <div class="nav-links">
+            <a href="#monarch">العرش</a>
+            <a href="#guilds">النقابات</a>
+            <a href="#store">السوق</a>
+            <a href="#sys">SYS</a>
+        </div>
+    </nav>
+
+    <main id="content-wrapper" class="system-container">
+        <section id="monarch" class="gate-section">
+            <img src="photo_5823313378468892156_y.jpg" class="section-banner">
+            <h1 class="glitch">المقر الرئيسي</h1>
+            <div class="shadow-box">
+                <img src="IMG_4528.jpeg" alt="Igris" class="shadow-avatar">
+                <div class="chat-content">
+                    <div id="shadow-reply" class="shadow-text">أنا الفارس إيغريس.. حارس العرش. تكلم بوقار أو واجه النفي.</div>
+                    <div id="input-zone">
+                        <input type="text" id="user-q" placeholder="اسأل الفارس..." class="ai-input">
+                        <button onclick="askIgris()" class="system-btn">إرسال</button>
+                    </div>
+                    <div id="lock-zone" style="display:none;">
+                        <input type="text" id="apology-input" placeholder="اكتب اعتذارك للملك..." class="ai-input">
+                        <button onclick="apologize()" class="system-btn">طلب العفو</button>
+                    </div>
+                    <div id="ban-zone" style="display:none; text-align:center;">
+                        <p style="color:red; font-weight:bold;">[ نفي مطلق ]</p>
+                        <div id="timer-display" style="font-family:'Orbitron'; color:var(--red); font-size:1.5rem; margin:10px 0;">24:00:00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guilds" class="gate-section">
+            <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4507.jpeg" class="section-banner">
+            <h2>النقابات الملكية</h2>
+            
+            <div class="guild-card">
+                <h3>⏣ نـقـابـة اكـلـيبس</h3>
+                <div class="guild-info">تفاعل أسطوري 8K+ | فرع إقليم فالكيري</div>
+                <div class="guild-btns">
+                    <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" class="system-btn small">انضمام</a>
+                    <button onclick="toggleSlide('eclipse-def', this, 'تعريف', 'إخفاء')" class="system-btn small">تعريف</button>
+                </div>
+                <div id="eclipse-def" class="slide-content">مملكة عريقة من 2022، تابعة لإقليم فالكيري.</div>
+            </div>
+
+            <div class="guild-card" style="margin-top:20px; border-color: var(--blue);">
+                <h3>✧ نـقـابـة اسـبـادا</h3>
+                <div class="guild-info">نخبة المحاربين | 南‌‏東 • ˹╎∇</div>
+                <div class="guild-btns">
+                    <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" class="system-btn small" style="border-color:var(--blue); color:var(--blue);">انضمام</a>
+                    <button onclick="toggleSlide('espada-def', this, 'تعريف', 'إخفاء')" class="system-btn small" style="border-color:var(--blue); color:var(--blue);">تعريف</button>
+                </div>
+                <div id="espada-def" class="slide-content">⏣╷نــقــابــة اسـبـادا • 南‌‏東 • ˹╎∇. مجمع القوة والولاء المطلق تحت ظلال الملك.</div>
+            </div>
+        </section>
+
+        <section id="sys" class="gate-section">
+            <img src="photo_5823313378468892173_y.jpg" class="section-banner">
+            <div class="sys-box">
+                <div class="sys-version" style="color:#ffd700;">V.2.0.0 - 𝑰𝒎𝒑𝒆𝒓𝒊𝒂𝒍</div>
+                <p class="sys-desc">المقر الرسمي للملك سونغ جين وو.</p>
+                <div class="links-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+                    <a href="https://whatsapp.com/channel/0029VbCMlkj2ER6nzLnwpO3G" class="system-btn small">قناة التطوير</a>
+                    <a href="https://chat.whatsapp.com/JILd7b6sW0JFk4bYPVzRrw?mode=gi_t" class="system-btn small">جروب التجارب</a>
+                </div>
+                <button onclick="sendSuggestion()" class="system-btn" style="margin-top:15px;">💡 اقتراح للملك</button>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
