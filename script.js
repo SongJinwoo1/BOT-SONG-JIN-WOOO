@@ -1,4 +1,4 @@
-// نظام خلفية المانا (أزرق وبنفسجي)
+// 🌌 نظام مانا الخلفية (أزرق وبنفسجي)
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -13,52 +13,96 @@ class Particle {
     update() { this.x += this.speedX; this.y += this.speedY; }
     draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
 }
-function init() { for (let i = 0; i < 50; i++) particles.push(new Particle()); }
+function init() { for (let i = 0; i < 45; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-// نظام ذكاء الفارس إيغريس
+// ⚔️ نظام إيغريس والنفي الزمني
 let patience = 3;
+const BAN_DURATION = 24 * 60 * 60 * 1000;
+
 function askIgris() {
     const q = document.getElementById('user-q').value.trim();
     const reply = document.getElementById('shadow-reply');
-    const inputZone = document.getElementById('input-zone');
-    const navOptions = document.getElementById('nav-options');
-
     if (!q) return;
 
-    // ردود إيغريس الموقرة عن الملك
-    if (q.includes("منشئ") || q.includes("صاحب") || q.includes("من صنعك") || q.includes("من الملك")) {
-        reply.innerText = "هذا الصرح شُيّد بأمر جلالة الملك سونغ جين وو. أنا سيفه المخلص وحارس عهده.. هل ترغب في محادثته؟";
-        navOptions.style.display = "flex";
-        return;
-    }
-
-    if (q.length < 5) {
+    if (q.length < 4) {
         patience--;
         if (patience <= 0) {
-            reply.innerText = "لقد أسأت الأدب في حضرة العرش. اختفِ فوراً ولا تظهر ثانية.";
-            inputZone.style.display = "none";
+            reply.innerText = "لقد أهنت العرش بتفاهتك. اعتذر الآن أو واجه النفي!";
+            document.getElementById('input-zone').style.display = "none";
             document.getElementById('lock-zone').style.display = "block";
-            return;
-        }
-        reply.innerText = `التزم وقار الفرسان.. أمامك ${patience} تنبيهات قبل النفي.`;
+        } else { reply.innerText = `تحدث بوقار.. بقيت لك ${patience} فرص.`; }
     } else {
-        reply.innerText = "سجلت كلماتك بوقار.. هل تود التواصل مع الملك أم الانتقال لسجلات النظام؟";
-        navOptions.style.display = "flex";
+        reply.innerText = "سجلت كلماتك في سجلات الظل.. هل لديك طلب للملك؟";
     }
+    document.getElementById('user-q').value = "";
 }
 
-// طقوس الاعتذار لفك الحظر
 function apologize() {
     const txt = document.getElementById('apology-input').value;
     if (txt.includes("أعتذر") || txt.includes("اعتذر") || txt.includes("آسف")) {
-        patience = 3;
-        document.getElementById('lock-zone').style.display = "none";
-        document.getElementById('input-zone').style.display = "block";
-        document.getElementById('shadow-reply').innerText = "تم قبول اعتذارك بأمر من الملك. لا تكرر حماقتك ثانية.";
+        let count = parseInt(localStorage.getItem('apology_count') || 0) + 1;
+        localStorage.setItem('apology_count', count);
+        if (count >= 3) {
+            localStorage.setItem('shadow_ban_end', new Date().getTime() + BAN_DURATION);
+            applyBan();
+        } else {
+            patience = 3;
+            document.getElementById('lock-zone').style.display = "none";
+            document.getElementById('input-zone').style.display = "block";
+            document.getElementById('shadow-reply').innerText = `قُبل اعتذارك (${count}/3). احذر من الثالثة!`;
+        }
     }
 }
+
+function applyBan() {
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
+    document.getElementById('content-wrapper').style.opacity = "0.1";
+    document.getElementById('content-wrapper').style.pointerEvents = "none";
+    document.getElementById('main-nav').style.display = "none";
+    document.getElementById('input-zone').style.display = "none";
+    document.getElementById('lock-zone').style.display = "none";
+    document.getElementById('ban-zone').style.display = "block";
+    document.getElementById('shadow-reply').innerText = "تم نفيك من المملكة لمدة 24 ساعة.. ارحل.";
+    startTimer();
+}
+
+function startTimer() {
+    const timerDisplay = document.getElementById('timer-display');
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const endTime = parseInt(localStorage.getItem('shadow_ban_end'));
+        const distance = endTime - now;
+        if (distance <= 0) {
+            clearInterval(interval);
+            localStorage.removeItem('shadow_ban_end');
+            localStorage.setItem('apology_count', 0);
+            location.reload();
+            return;
+        }
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        timerDisplay.innerText = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }, 1000);
+}
+
+// 🛡️ درع الحماية الخفي (Anti-Hacker)
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "u")) {
+        e.preventDefault();
+    }
+});
+setInterval(() => { debugger; }, 100);
+
+// التحقق من الحالة عند الفتح
+window.onload = function() {
+    const banEnd = localStorage.getItem('shadow_ban_end');
+    if (banEnd && new Date().getTime() < parseInt(banEnd)) { applyBan(); }
+};
 
 function toggleSlide(id, btn, openT, closeT) {
     const el = document.getElementById(id); el.classList.toggle('active');
@@ -66,5 +110,5 @@ function toggleSlide(id, btn, openT, closeT) {
 }
 
 function sendSuggestion() {
-    window.open("https://wa.me/965997805334?text=أيها الملك، لدي اقتراح لتطوير المقر: ");
+    window.open("https://wa.me/965997805334?text=أيها الملك، لدي اقتراح للنسخة الجديدة: ");
 }
