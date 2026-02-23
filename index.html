@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>المقر الرئيسي | 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</title>
+    <title>المقر الرئيسي | v.2.0.VOID_CORE</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -18,8 +18,8 @@
             <a href="#monarch">العرش</a>
             <a href="#commands">التطويرات</a>
             <a href="#store">المتجر</a>
-            <a href="#sys">السجل</a>
             <a href="#ranks">الرتب</a>
+            <a href="#laws">الدستور</a>
             <a href="#guilds">النقابات</a>
         </div>
     </nav>
@@ -42,48 +42,43 @@
             </div>
         </section>
 
-        <section id="store" class="gate-section">
-            <img src="photo_5823313378468892170_y.jpg" class="section-banner">
-            <h2>المتجر الملكي</h2>
-            <button onclick="toggleSlide('store-hub', this, 'دخول المتجر', 'خروج من المتجر')" class="system-btn">دخول المتجر</button>
-            <div id="store-hub" class="slide-content">
-                <a href="https://wa.me/965997805334?text=أريد+تطوير+بوت+خاص+بي" target="_blank" class="system-btn">🛠️ تطوير بوت خاص</a>
-                <a href="https://wa.me/965997805334?text=أريد+تصميم+نقابة+أو+مملكة+احترافية" target="_blank" class="system-btn">🎨 تصاميم نقابات</a>
-                <a href="https://wa.me/965997805334?text=كيف+يمكنني+ضم+نقابتي+للموقع؟" target="_blank" class="system-btn">🤝 انضمام النقابات</a>
-            </div>
-        </section>
-
-        <section id="sys" class="gate-section">
-            <img src="photo_5823313378468892173_y.jpg" class="section-banner">
-            <h2>سجل النظام SYS</h2>
-            <button onclick="toggleSlide('sys-info', this, 'رؤية سجل الـ SYS', 'إخفاء السجل')" class="system-btn">رؤية سجل الـ SYS</button>
-            <div id="sys-info" class="slide-content">
-                <div class="info-box" style="border-color: var(--purple); width: 90%;">
-                    <p style="color: var(--purple); font-weight: bold;">VERSION: v.2.0.VOID_CORE</p>
-                    <hr style="border-color: var(--purple); margin: 10px 0;">
-                    <p style="font-size: 0.85rem; line-height: 1.6;">
-                        تم تفعيل بروتوكول "نواة الفراغ". هذا الموقع هو المركز العصبي لنظام 𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐، لربط كافة أقاليم الظلال ونقابة اكليبس بمركز القيادة الموحد تحت إشراف الحاكم. يوفر الإصدار المطور واجهات تفاعلية وسرعة في استدعاء البيانات.
-                    </p>
-                </div>
-            </div>
-        </section>
-
         <section id="ranks" class="gate-section">
             <img src="photo_5823313378468892171_y.jpg" class="section-banner">
             <h2>لوحة التصنيف والرتب</h2>
-            <button onclick="toggleSlide('ranks-list', this, 'عرض الرتب والقادة', 'إغلاق الرتب')" class="system-btn">عرض الرتب والقادة</button>
-            <div id="ranks-list" class="slide-content">
-                <div class="guild-card" style="border: 2px solid var(--purple); margin-top: 15px;">
-                    <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/photo_5821173209150196869_y%20(1).jpg" class="rank-avatar" style="border-color: var(--purple);">
-                    <h3 style="color: var(--purple);">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</h3>
-                    <p>👑 ملك النظام ومؤسس المقر الرئيسي</p>
-                    <a href="https://wa.me/965997805334" target="_blank" class="system-btn" style="border-color: var(--purple); color: var(--purple); margin-top: 10px;">تواصل مع الحاكم</a>
+            <button onclick="toggleSlide('ranks-list', this, 'عرض الرتب والقادة', 'إغلاق لوحة الرتب')" class="system-btn">عرض الرتب والقادة</button>
+            <div id="ranks-list" class="slide-content ranks-flex">
+                <div class="mini-rank-card" style="border-color: var(--purple);">
+                    <div class="avatar-box" style="border-color: var(--purple);">
+                        <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/photo_5821173209150196869_y%20(1).jpg">
+                    </div>
+                    <h4 style="color: var(--purple);">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐</h4>
+                    <a href="https://wa.me/965997805334" target="_blank" class="system-btn mini-btn" style="border-color: var(--purple); color: var(--purple);">تواصل مع الحاكم</a>
                 </div>
-                <div class="guild-card" style="border: 2px solid var(--blue);">
-                    <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4528.jpeg" class="rank-avatar" style="border-color: var(--blue);">
-                    <h3 style="color: var(--blue);">أنوش (Anosh)</h3>
-                    <p>🛡️ مؤسس نقابة اكليبس العريقة</p>
-                    <a href="https://wa.me/5524981630048" target="_blank" class="system-btn" style="margin-top: 10px;">تواصل مع المؤسس</a>
+                <div class="mini-rank-card" style="border-color: var(--blue);">
+                    <div class="avatar-box" style="border-color: var(--blue);">
+                        <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4528.jpeg">
+                    </div>
+                    <h4 style="color: var(--blue);">Anosh</h4>
+                    <a href="https://wa.me/5524981630048" target="_blank" class="system-btn mini-btn">تواصل مع المؤسس</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="laws" class="gate-section">
+            <img src="IMG_4517.jpeg" class="section-banner">
+            <h2>الدستور الملكي</h2>
+            <button onclick="toggleSlide('laws-content', this, 'استدعاء القوانين التسعة', 'إغلاق الدستور')" class="system-btn">استدعاء القوانين التسعة</button>
+            <div id="laws-content" class="slide-content">
+                <div class="laws-grid">
+                    <div class="law-item"><span>1</span> الاحترام المتبادل بين الجميع.</div>
+                    <div class="law-item"><span>2</span> يمنع نشر الروابط الخارجية.</div>
+                    <div class="law-item"><span>3</span> الولاء للنقابة شرط أساسي.</div>
+                    <div class="law-item"><span>4</span> التفاعل المستمر يرفع تصنيفك.</div>
+                    <div class="law-item"><span>5</span> يمنع التدخل في شؤون الإدارة.</div>
+                    <div class="law-item"><span>6</span> الحفاظ على سرية المعلومات.</div>
+                    <div class="law-item"><span>7</span> يمنع السب بجميع أشكاله.</div>
+                    <div class="law-item"><span>8</span> الالتزام بالمهام الموكلة.</div>
+                    <div class="law-item"><span>9</span> قرارات الحاكم نهائية.</div>
                 </div>
             </div>
         </section>
@@ -96,17 +91,9 @@
                     <h3>نـقـابـة اكـلـيبس</h3>
                     <div class="guild-actions">
                         <a href="javascript:void(0)" onclick="selectGuild('Eclipse')" class="system-btn">إعلان الولاء</a>
-                        <button onclick="toggleSlide('e-desc', this, '📜 تعريف النقابة', '🔼 إخفاء')" class="system-btn">📜 تعريف النقابة</button>
+                        <button onclick="toggleSlide('e-info', this, '📜 التعريف', '🔼 إخفاء')" class="system-btn">📜 التعريف</button>
                     </div>
-                    <div id="e-desc" class="slide-content info-box">تفاعل أسطوري ومملكة عريقة منذ 2022.</div>
-                </div>
-                <div class="guild-card">
-                    <h3>نـقـابـة اسـبـادا</h3>
-                    <div class="guild-actions">
-                        <button onclick="selectGuild('اسبادا', true)" class="system-btn locked">مغلق حالياً</button>
-                        <button onclick="toggleSlide('s-desc', this, '📜 تعريف النقابة', '🔼 إخفاء')" class="system-btn">📜 تعريف النقابة</button>
-                    </div>
-                    <div id="s-desc" class="slide-content info-box">فرع إقليمي جديد تحت التطوير.</div>
+                    <div id="e-info" class="slide-content info-box">🛡️ تأسست 2022. تفاعل أسطوري وجوائز مادية.</div>
                 </div>
             </div>
         </section>
