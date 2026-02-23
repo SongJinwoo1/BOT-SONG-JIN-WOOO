@@ -7,94 +7,79 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="main-body">
     <canvas id="particleCanvas"></canvas>
 
-    <nav class="system-nav">
+    <nav class="system-nav" id="main-nav">
         <div class="logo-wrapper">
             <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/photo_5821173209150196869_y%20(1).jpg" alt="Logo">
         </div>
         <div class="nav-links">
             <a href="#monarch">العرش</a>
-            <a href="#commands">التطويرات</a>
             <a href="#guilds">النقابات</a>
             <a href="#store">السوق</a>
             <a href="#sys">SYS</a>
         </div>
     </nav>
 
-    <main class="system-container">
+    <main id="content-wrapper" class="system-container">
         <section id="monarch" class="gate-section">
             <img src="photo_5823313378468892156_y.jpg" class="section-banner">
             <h1 class="glitch">المقر الرئيسي</h1>
-            <div id="shadow-chat-container" class="shadow-box">
+            <div class="shadow-box">
                 <img src="IMG_4528.jpeg" alt="Igris" class="shadow-avatar">
                 <div class="chat-content">
-                    <div id="shadow-reply" class="shadow-text">أنا الفارس إيغريس، حارس العرش.. التزم الوقار في حضرة الملك.</div>
+                    <div id="shadow-reply" class="shadow-text">أنا الفارس إيغريس.. حارس حدود الملك. تكلم بوقار أو واجه النفي.</div>
+                    
                     <div id="input-zone">
-                        <input type="text" id="user-q" placeholder="تحدث بإيجاز..." class="ai-input">
-                        <button onclick="askIgris()" class="system-btn igris-btn">مخاطبة الفارس</button>
+                        <input type="text" id="user-q" placeholder="اسأل الفارس..." class="ai-input">
+                        <button onclick="askIgris()" class="system-btn">إرسال الطلب</button>
                     </div>
+
                     <div id="lock-zone" style="display:none;">
-                        <p style="color:red; font-size:0.7rem; margin-bottom:5px;">[ تم حظر الوصول لإساءة الأدب ]</p>
-                        <input type="text" id="apology-input" placeholder="اكتب اعتذارك للملك هنا..." class="ai-input">
-                        <button onclick="apologize()" class="system-btn igris-btn">تقديم الاعتذار</button>
+                        <input type="text" id="apology-input" placeholder="اكتب اعتذارك للملك..." class="ai-input">
+                        <button onclick="apologize()" class="system-btn">تقديم الاعتذار</button>
                     </div>
-                    <div id="nav-options" class="nav-options" style="display:none; gap:5px; margin-top:10px; justify-content:center;">
-                        <button onclick="window.open('https://wa.me/965997805334')" class="system-btn small">لقاء الملك</button>
-                        <button onclick="location.href='#sys'" class="system-btn small">سجلات النظام</button>
+
+                    <div id="ban-zone" style="display:none; text-align:center;">
+                        <p style="color:red; font-weight:bold;">[ نفي مطلق من المقر ]</p>
+                        <div id="timer-display" style="font-family:'Orbitron'; color:var(--red); font-size:1.5rem; margin:15px 0;">24:00:00</div>
+                        <p style="font-size:0.75rem;">لن يُفتح لك باب المقر حتى ينقضي الزمن.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="commands" class="gate-section">
-            <img src="photo_5823313378468892172_y.jpg" class="section-banner">
-            <h2>مجمع التطويرات</h2>
-            <button onclick="toggleSlide('dev-hub', this, 'فتح المجمع', 'إغلاق المجمع')" class="system-btn">فتح المجمع</button>
-            <div id="dev-hub" class="slide-content">
-                <a href="https://whatsapp.com/channel/0029VbCMlkj2ER6nzLnwpO3G" target="_blank" class="system-btn">📢 قناة الإعلانات</a>
-                <a href="https://chat.whatsapp.com/JILd7b6sW0JFk4bYPVzRrw?mode=gi_t" target="_blank" class="system-btn">🧪 جروب التجارب</a>
             </div>
         </section>
 
         <section id="guilds" class="gate-section">
             <img src="https://raw.githubusercontent.com/SongJinwoo1/BOT-SONG-JIN-WOOO/main/IMG_4507.jpeg" class="section-banner">
-            <h2>النقابات</h2>
+            <h2>النقابات الملكية</h2>
+            
             <div class="guild-card">
-                <h3>نـقـابـة اكـلـيبس</h3>
-                <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" class="system-btn">انضم للنقابة</a>
+                <h3>⏣ نـقـابـة اكـلـيبس</h3>
+                <div class="guild-btns">
+                    <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" class="system-btn small">انضمام</a>
+                    <button onclick="toggleSlide('eclipse-def', this, 'تعريف', 'إخفاء')" class="system-btn small">تعريف</button>
+                </div>
+                <div id="eclipse-def" class="slide-content">تفاعل أسطوري 8K+ | فرع إقليم فالكيري.</div>
             </div>
-        </section>
 
-        <section id="store" class="gate-section">
-            <img src="photo_5823313378468892170_y.jpg" class="section-banner">
-            <h2>السوق المفتوح</h2>
-            <div class="market-grid">
-                <div class="market-card">
-                    <h4>تطوير بوتات</h4>
-                    <a href="https://wa.me/965997805334" class="system-btn small">طلب الخدمة</a>
+            <div class="guild-card" style="margin-top:15px; border-color: var(--blue);">
+                <h3>✧ نـقـابـة اسـبـادا</h3>
+                <div class="guild-btns">
+                    <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" class="system-btn small" style="border-color:var(--blue); color:var(--blue);">انضمام</a>
+                    <button onclick="toggleSlide('espada-def', this, 'تعريف', 'إخفاء')" class="system-btn small" style="border-color:var(--blue); color:var(--blue);">تعريف</button>
                 </div>
-                <div class="market-card">
-                    <h4>تصاميم ملكية</h4>
-                    <a href="https://wa.me/965997805334" class="system-btn small">طلب الخدمة</a>
-                </div>
+                <div id="espada-def" class="slide-content">⏣╷نــقــابــة اسـبـادا • 南‌‏東 • ˹╎∇. مجمع القوة والولاء المطلق.</div>
             </div>
         </section>
 
         <section id="sys" class="gate-section">
             <img src="photo_5823313378468892173_y.jpg" class="section-banner">
             <div class="sys-box">
-                <div class="sys-version">V.2.1.0 - Igris Loyalty</div>
-                <p class="sys-desc">المقر الرسمي لإمبراطورية الملك سونغ جين وو. هنا تُدار الظلال وتُحفظ العهود تحت حماية الفارس الأحمر.</p>
-                <div class="sys-updates">
-                    <h4>التحديثات القادمة:</h4>
-                    <ul>
-                        <li>استيقاظ المتجر التفاعلي</li>
-                        <li>نظام رتب المانا المتقدمة</li>
-                    </ul>
-                </div>
-                <button onclick="sendSuggestion()" class="system-btn">💡 أضف اقتراح للملك</button>
+                <div class="sys-version" style="color:#ffd700;">V.2.0.0 - 𝑹𝒐𝒚𝒂𝒍 𝑨𝒘𝒂𝒌𝒆𝒏𝒊𝒏𝒈</div>
+                <h3 style="color:var(--red); font-size:1rem; margin-bottom:10px;">إعلان النسخة الإمبراطورية</h3>
+                <p class="sys-desc">تم تفعيل "درع الظلال" الخفي. المقر الآن محصن تماماً ضد المتطفلين والمخترقين.</p>
+                <button onclick="sendSuggestion()" class="system-btn">💡 تقديم اقتراح ملكي</button>
             </div>
         </section>
     </main>
