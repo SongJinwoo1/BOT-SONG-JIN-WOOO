@@ -1,37 +1,33 @@
-:root { --blue: #00d4ff; --purple: #8a2be2; --bg: #050505; --glass: rgba(10, 10, 20, 0.95); }
+:root { --blue: #00d4ff; --purple: #8a2be2; --bg: #050505; --glass: rgba(10, 10, 20, 0.98); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
 #particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
-.system-nav { 
-    position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.98); 
-    padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; 
-    z-index: 2000; border-bottom: 2px solid var(--purple);
-}
-.logo-wrapper img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--purple); object-fit: cover; }
-.nav-links { display: flex; gap: 5px; flex-wrap: wrap; }
-.nav-links a { color: white; text-decoration: none; font-size: 0.7rem; padding: 5px 8px; background: rgba(138,43,226,0.1); border-radius: 5px; }
+.system-nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 2px solid var(--purple); }
+.logo-wrapper img { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--purple); }
 
-.gate-section { padding: 130px 15px 50px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.section-banner { width: 95%; max-width: 400px; border-radius: 15px; border: 2px solid var(--blue); margin-bottom: 20px; box-shadow: 0 0 15px var(--blue); }
+.gate-section { padding: 110px 15px 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.section-banner { width: 90%; max-width: 350px; border-radius: 12px; border: 2px solid var(--blue); margin-bottom: 15px; }
 
-.system-btn { 
-    width: 100%; max-width: 280px; padding: 12px; border: 2px solid var(--blue); 
-    color: var(--blue); background: rgba(0,0,0,0.6); border-radius: 50px; cursor: pointer; 
-    font-weight: bold; font-size: 0.9rem; text-decoration: none; margin-bottom: 10px; transition: 0.3s;
-}
-.system-btn:hover { background: var(--blue); color: black; box-shadow: 0 0 15px var(--blue); }
-.locked { border-color: #444; color: #666; cursor: not-allowed; }
+.system-btn { width: 100%; max-width: 280px; padding: 12px; border: 2px solid var(--blue); color: var(--blue); background: rgba(0,0,0,0.5); border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 0.85rem; text-decoration: none; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
 
-.slide-content { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s ease-in-out; width: 100%; display: flex; flex-direction: column; align-items: center; }
-.slide-content.active { max-height: 1000px; opacity: 1; margin-top: 15px; }
+/* تنسيق الرتب الجديد */
+.ranks-flex { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; }
+.mini-rank-card { background: var(--glass); padding: 15px; border-radius: 20px; border: 1px solid; width: 45%; max-width: 180px; display: flex; flex-direction: column; align-items: center; }
+.avatar-box { width: 65px; height: 65px; border-radius: 50%; border: 2px solid; overflow: hidden; margin-bottom: 8px; }
+.avatar-box img { width: 100%; height: 100%; object-fit: cover; }
+.mini-rank-card h4 { font-size: 0.8rem; margin-bottom: 10px; }
+.mini-btn { font-size: 0.65rem !important; padding: 8px !important; }
 
-.info-box { background: rgba(138, 43, 226, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--purple); text-align: center; font-size: 0.9rem; }
-.guild-card { background: var(--glass); padding: 20px; border-radius: 25px; border: 1px solid rgba(0,212,255,0.2); width: 95%; max-width: 400px; margin-bottom: 20px; }
-.rank-avatar { width: 80px; height: 80px; border-radius: 50%; border: 3px solid; object-fit: cover; margin-bottom: 10px; }
+/* الدستور والقوانين */
+.laws-grid { width: 95%; max-width: 500px; display: flex; flex-direction: column; gap: 8px; }
+.law-item { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 10px; border-radius: 8px; text-align: right; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; }
+.law-item span { color: var(--purple); font-weight: bold; font-family: 'Orbitron'; }
 
-@media (min-width: 768px) {
-    .guilds-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .guild-card { width: 45%; }
+.slide-content { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s ease-in-out; width: 100%; }
+.slide-content.active { max-height: 1500px; opacity: 1; padding: 15px 0; }
+
+@media (max-width: 400px) {
+    .mini-rank-card { width: 90%; max-width: 250px; } /* للأجهزة الصغيرة جداً يظهرون تحت بعض */
 }
