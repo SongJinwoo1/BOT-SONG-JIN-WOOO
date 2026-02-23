@@ -2,34 +2,41 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
 .system-nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 2px solid var(--purple); }
-.logo-wrapper img { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--purple); object-fit: cover; }
-.nav-links { display: flex; gap: 5px; }
-.nav-links a { color: white; text-decoration: none; font-size: 0.65rem; padding: 4px 8px; background: rgba(138,43,226,0.1); border-radius: 5px; }
+.logo-wrapper img { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--purple); }
+.nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.6rem; padding: 5px; background: rgba(138,43,226,0.1); border-radius: 4px; }
 
-.gate-section { padding: 110px 15px 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.section-banner { width: 90%; max-width: 350px; border-radius: 12px; border: 2px solid var(--blue); margin-bottom: 15px; box-shadow: 0 0 15px var(--blue); }
+.gate-section { padding: 120px 15px 60px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+.section-banner { width: 90%; max-width: 360px; border-radius: 12px; border: 2px solid var(--blue); margin-bottom: 20px; }
 
-.system-btn { width: 100%; max-width: 280px; padding: 12px; border: 2px solid var(--blue); color: var(--blue); background: rgba(0,0,0,0.5); border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 0.85rem; text-decoration: none; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-.system-btn:hover { background: var(--blue); color: black; transform: scale(1.03); }
+/* أزرار النظام */
+.system-btn { width: 100%; max-width: 280px; padding: 12px; border: 2px solid var(--blue); color: var(--blue); background: rgba(0,0,0,0.5); border-radius: 50px; cursor: pointer; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+.mini-btn { padding: 8px; font-size: 0.75rem; margin: 5px 0; }
+.locked { border-color: #444; color: #666; cursor: not-allowed; }
 
-/* تنسيق الرتب التفاعلي */
-.ranks-flex { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; }
-.mini-rank-card { background: var(--glass); padding: 15px; border-radius: 20px; border: 2px solid; width: 45%; max-width: 180px; display: flex; flex-direction: column; align-items: center; }
-.avatar-box { width: 65px; height: 65px; border-radius: 50%; border: 2px solid; overflow: hidden; margin-bottom: 8px; }
-.avatar-box img { width: 100%; height: 100%; object-fit: cover; }
-.mini-btn { font-size: 0.6rem !important; padding: 8px !important; }
+/* نظام العرض العرضي (Grid) */
+.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; max-width: 500px; padding: 15px; }
 
-/* الدستور الملكي */
-.laws-grid { width: 95%; max-width: 500px; display: flex; flex-direction: column; gap: 8px; }
-.law-item { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 10px; border-radius: 8px; text-align: right; font-size: 0.8rem; display: flex; align-items: center; gap: 10px; }
-.law-item span { color: var(--purple); font-weight: bold; font-family: 'Orbitron'; }
+/* كروت القادة والنقابات */
+.rank-profile-card, .guild-entry-card { background: var(--glass); padding: 15px; border-radius: 20px; border: 1px solid rgba(0,212,255,0.2); display: flex; flex-direction: column; align-items: center; }
+.profile-img-wrap { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--blue); overflow: hidden; margin-bottom: 10px; }
+.profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
+/* الدستور (بطاقات منفصلة) */
+.laws-vertical-grid { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 10px; }
+.law-card { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 15px; border-radius: 12px; text-align: right; display: flex; align-items: center; gap: 12px; font-size: 0.85rem; }
+.law-card span { color: var(--purple); font-family: 'Orbitron'; font-weight: bold; font-size: 1.2rem; }
+
+/* السلايد */
 .slide-content { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s ease-in-out; width: 100%; }
-.slide-content.active { max-height: 1500px; opacity: 1; padding: 15px 0; }
+.slide-content.active { max-height: 2000px; opacity: 1; }
 
-@media (max-width: 450px) {
-    .mini-rank-card { width: 90%; max-width: 280px; }
+.info-card { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 20px; border-radius: 15px; width: 90%; }
+.info-card-mini { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; font-size: 0.75rem; }
+
+@media (max-width: 400px) {
+    .row-grid { grid-template-columns: 1fr; } /* للهواتف الصغيرة جداً يرجع 1x1 */
 }
