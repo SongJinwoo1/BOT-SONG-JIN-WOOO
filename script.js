@@ -7,7 +7,8 @@ class Particle {
     constructor() {
         this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
         this.size = Math.random() * 1.5 + 0.5; this.speedX = Math.random() * 0.4 - 0.2;
-        this.speedY = Math.random() * 0.4 - 0.2; this.color = Math.random() > 0.5 ? '#00d4ff' : '#8a2be2';
+        this.speedY = Math.random() * 0.4 - 0.2; 
+        this.color = Math.random() > 0.5 ? '#00d4ff' : '#8a2be2'; 
     }
     update() {
         this.x += this.speedX; this.y += this.speedY;
@@ -28,8 +29,8 @@ function toggleSlide(id, btn, textOpen, textClose) {
 
 function selectGuild(name, isLocked = false) {
     const saved = localStorage.getItem('myGuild');
-    if (saved && saved !== name) { alert("⚠️ لا يسمح بتغيير الولاء! انتمائك لـ " + saved); return; }
-    if (isLocked) { alert("⚠️ مغلق حالياً."); return; }
+    if (saved && saved !== name) { alert("⚠️ الولاء مسجل لـ " + saved); return; }
+    if (isLocked) { alert("⚠️ الفرع مغلق."); return; }
     localStorage.setItem('myGuild', name);
     alert("✅ تم إعلان الولاء لـ " + name);
     if (name === 'Eclipse') window.open("https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5");
