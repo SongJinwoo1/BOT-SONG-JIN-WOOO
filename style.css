@@ -1,42 +1,49 @@
 :root { --blue: #00d4ff; --purple: #8a2be2; --bg: #050505; --glass: rgba(10, 10, 20, 0.98); }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
 body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
+/* شريط التنقل */
 .system-nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 2px solid var(--purple); }
 .logo-wrapper img { width: 35px; height: 35px; border-radius: 50%; border: 1px solid var(--purple); }
-.nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-.nav-links a { color: white; text-decoration: none; font-size: 0.6rem; padding: 5px; background: rgba(138,43,226,0.1); border-radius: 4px; }
+.nav-links { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.55rem; padding: 4px 6px; background: rgba(138,43,226,0.1); border-radius: 4px; border: 1px solid transparent; }
 
-.gate-section { padding: 120px 15px 60px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
-.section-banner { width: 90%; max-width: 360px; border-radius: 12px; border: 2px solid var(--blue); margin-bottom: 20px; }
+/* الأقسام */
+.gate-section { padding: 110px 15px 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.section-banner { width: 90%; max-width: 350px; border-radius: 12px; border: 2px solid var(--blue); margin-bottom: 15px; box-shadow: 0 0 15px var(--blue); }
+h2 { margin-bottom: 20px; font-size: 1.5rem; text-shadow: 0 0 10px var(--blue); }
 
-/* أزرار النظام */
-.system-btn { width: 100%; max-width: 280px; padding: 12px; border: 2px solid var(--blue); color: var(--blue); background: rgba(0,0,0,0.5); border-radius: 50px; cursor: pointer; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-.mini-btn { padding: 8px; font-size: 0.75rem; margin: 5px 0; }
+/* الأزرار */
+.system-btn { width: 100%; max-width: 280px; padding: 12px; border: 2px solid var(--blue); color: var(--blue); background: rgba(0,0,0,0.5); border-radius: 50px; cursor: pointer; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
+.system-btn:hover { background: var(--blue); color: black; transform: scale(1.03); }
+.mini-btn { padding: 8px; font-size: 0.7rem !important; margin: 4px 0; }
 .locked { border-color: #444; color: #666; cursor: not-allowed; }
 
-/* نظام العرض العرضي (Grid) */
-.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; max-width: 500px; padding: 15px; }
+/* نظام Grid (2 في الصف) */
+.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 500px; padding: 10px; }
 
-/* كروت القادة والنقابات */
-.rank-profile-card, .guild-entry-card { background: var(--glass); padding: 15px; border-radius: 20px; border: 1px solid rgba(0,212,255,0.2); display: flex; flex-direction: column; align-items: center; }
-.profile-img-wrap { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--blue); overflow: hidden; margin-bottom: 10px; }
+/* بروفايلات دائرية */
+.rank-profile-card, .guild-entry-card { background: var(--glass); padding: 15px; border-radius: 20px; border: 1px solid rgba(0,212,255,0.2); display: flex; flex-direction: column; align-items: center; width: 100%; }
+.profile-img-wrap { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--blue); overflow: hidden; margin-bottom: 10px; box-shadow: 0 0 10px var(--blue); }
 .profile-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.guild-name { font-size: 0.8rem; margin-bottom: 10px; color: var(--blue); }
 
-/* الدستور (بطاقات منفصلة) */
+/* الدستور */
 .laws-vertical-grid { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 10px; }
-.law-card { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 15px; border-radius: 12px; text-align: right; display: flex; align-items: center; gap: 12px; font-size: 0.85rem; }
-.law-card span { color: var(--purple); font-family: 'Orbitron'; font-weight: bold; font-size: 1.2rem; }
+.law-card { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 15px; border-radius: 12px; text-align: right; display: flex; align-items: center; gap: 10px; font-size: 0.8rem; transition: 0.3s; }
+.law-card:hover { transform: translateX(-5px); border-color: var(--blue); }
+.law-card span { color: var(--purple); font-family: 'Orbitron'; font-weight: bold; font-size: 1.1rem; }
 
 /* السلايد */
 .slide-content { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s ease-in-out; width: 100%; }
-.slide-content.active { max-height: 2000px; opacity: 1; }
+.slide-content.active { max-height: 2000px; opacity: 1; padding: 10px 0; }
+.info-card { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 20px; border-radius: 15px; width: 90%; font-size: 0.9rem; line-height: 1.6; }
+.info-card-mini { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; font-size: 0.7rem; color: #ccc; }
 
-.info-card { background: rgba(138,43,226,0.05); border: 1px solid var(--purple); padding: 20px; border-radius: 15px; width: 90%; }
-.info-card-mini { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; font-size: 0.75rem; }
-
-@media (max-width: 400px) {
-    .row-grid { grid-template-columns: 1fr; } /* للهواتف الصغيرة جداً يرجع 1x1 */
+/* للهواتف */
+@media (max-width: 420px) {
+    .row-grid { grid-template-columns: 1fr 1fr; gap: 8px; } /* يبقى 2 بجانب بعض للهواتف الحديثة */
+    .nav-links a { font-size: 0.5rem; padding: 3px 5px; }
 }
