@@ -21,14 +21,14 @@ function init() { for (let i = 0; i < 60; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-// دالة الانزلاق الموحدة للهواتف
+// دالة الانزلاق
 function toggleSlide(id, btn, textOpen, textClose) {
     const content = document.getElementById(id);
     content.classList.toggle('active');
     btn.innerText = content.classList.contains('active') ? textClose : textOpen;
 }
 
-// نظام الولاء (محمي - لا يتم تعديله)
+// نظام الولاء (محمي - لا يمس)
 function selectGuild(name, isLocked = false) {
     const saved = localStorage.getItem('myGuild');
     if (saved && saved !== name) { alert("⚠️ النظام لا يسمح بتغيير الولاء! أنت تنتمي لـ " + saved); return; }
