@@ -1,3 +1,4 @@
+// الخلفية والجزيئات (أزرق وبنفسجي)
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -20,24 +21,25 @@ function init() { for (let i = 0; i < 60; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
+// وظيفة الانزلاق الموحدة
 function toggleSlide(id, btn, textOpen, textClose) {
     const content = document.getElementById(id);
     content.classList.toggle('active');
     btn.innerText = content.classList.contains('active') ? textClose : textOpen;
 }
 
-// نظام الولاء (محمي بطلبك)
+// نظام الولاء (محمي بطلبك - لا يمس نهائياً [cite: 2026-02-23])
 function selectGuild(name, isLocked = false) {
     const saved = localStorage.getItem('myGuild');
     if (saved && saved !== name) { alert("⚠️ النظام لا يسمح بتغيير الولاء! أنت تنتمي لـ " + saved); return; }
-    if (isLocked) { if(confirm("⚠️ مغلق حالياً. مراسلة الحاكم؟")) window.open("https://wa.me/965997805334"); return; }
+    if (isLocked) { if(confirm("⚠️ هذه النقابة مغلقة حالياً. هل تود مراسلة الحاكم للاستفسار؟")) window.open("https://wa.me/965997805334"); return; }
     localStorage.setItem('myGuild', name);
-    alert("✅ تم إعلان الولاء لـ " + name);
+    alert("✅ تم إعلان الولاء بنجاح لنقابة " + name);
     if (name === 'Eclipse') window.open("https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5");
 }
 
 function checkLoyalty(branch) {
     const saved = localStorage.getItem('myGuild');
-    if (!saved) { alert("⚠️ أعلن ولاؤك أولاً!"); window.location.href = "#guilds"; return; }
-    alert(`⚠️ فرع [${branch}] قيد التطوير.`);
+    if (!saved) { alert("⚠️ أعلن ولاؤك لنقابة أولاً للوصول إلى هذا القسم!"); window.location.href = "#guilds"; return; }
+    alert(`⚠️ فرع [${branch}] تحت الصيانة والتطوير حالياً.`);
 }
