@@ -1,47 +1,49 @@
-:root { --blue: #00d4ff; --purple: #8a2be2; --bg: #050505; --glass: rgba(10, 10, 20, 0.95); }
+:root { --blue: #00d4ff; --purple: #8a2be2; --red: #ff0000; --bg: #050505; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; overflow-x: hidden; }
+body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+#particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-/* القائمة العلوية والشعار */
+/* القائمة العلوية المحسنة للهاتف */
 .system-nav { 
     position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.98); 
-    padding: 10px 5%; display: flex; flex-direction: row; justify-content: space-between; align-items: center; 
-    z-index: 2000; border-bottom: 2px solid var(--blue);
+    padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; 
+    z-index: 2000; border-bottom: 2px solid var(--red);
 }
-.logo-wrapper { width: 42px; height: 42px; flex-shrink: 0; }
-.logo-wrapper img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--blue); object-fit: cover; }
+.logo-wrapper { width: 42px; height: 42px; }
+.logo-wrapper img { width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--red); }
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.6rem; padding: 4px 6px; background: rgba(255,0,0,0.1); border-radius: 5px; border: 1px solid rgba(255,0,0,0.2); }
 
-.nav-links { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
-.nav-links a { color: white; text-decoration: none; font-size: 0.65rem; padding: 5px 8px; background: rgba(0,212,255,0.1); border-radius: 5px; }
+/* صندوق إيغريس */
+.shadow-box {
+    background: rgba(10, 10, 10, 0.95); border: 1px solid var(--red); border-radius: 15px;
+    padding: 15px; width: 95%; max-width: 420px; display: flex; align-items: center; gap: 12px;
+    margin-top: 20px; box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+.shadow-avatar { width: 65px; height: 65px; border-radius: 50%; border: 2px solid var(--red); object-fit: cover; }
+.shadow-text { font-size: 0.8rem; color: #eee; margin-bottom: 10px; border-right: 3px solid var(--red); padding-right: 8px; text-align: right; line-height: 1.4; }
+.ai-input { width: 100%; background: #000; border: 1px solid #333; color: white; padding: 8px; border-radius: 8px; font-size: 0.8rem; margin-bottom: 5px; outline: none; }
+.ai-input:focus { border-color: var(--red); }
 
-/* الأقسام */
-.gate-section { padding: 130px 15px 50px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.section-banner { width: 95%; max-width: 400px; border-radius: 15px; border: 2px solid var(--purple); margin-bottom: 20px; box-shadow: 0 0 15px var(--purple); }
+/* الأقسام العامة */
+.gate-section { padding: 100px 15px 40px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+.section-banner { width: 100%; max-width: 360px; border-radius: 15px; border: 1px solid var(--red); margin-bottom: 15px; }
 
-/* تنسيق الأزرار المطور */
-.guild-actions { display: flex; flex-direction: column; gap: 10px; width: 100%; align-items: center; }
 .system-btn { 
-    width: 100%; max-width: 280px; padding: 12px; border: 2px solid var(--blue); 
-    color: var(--blue); background: transparent; border-radius: 50px; cursor: pointer; 
-    font-weight: bold; font-size: 0.9rem; text-decoration: none; text-align: center; transition: 0.3s;
+    width: 100%; max-width: 280px; padding: 12px; border: 1px solid var(--red); color: white; 
+    background: rgba(255,0,0,0.1); border-radius: 10px; cursor: pointer; font-size: 0.85rem; margin: 5px 0;
+    transition: 0.3s; text-decoration: none; display: inline-block;
 }
-.system-btn:hover { background: var(--blue); color: black; box-shadow: 0 0 15px var(--blue); }
-.locked { border-color: #555; color: #777; cursor: not-allowed; }
+.system-btn:active { transform: scale(0.95); background: var(--red); }
+.system-btn.small { padding: 6px; font-size: 0.7rem; max-width: 120px; }
 
-/* نظام الانزلاق */
-.slide-content { max-height: 0; opacity: 0; overflow: hidden; transition: 0.5s ease-in-out; width: 100%; display: flex; flex-direction: column; align-items: center; }
-.slide-content.active { max-height: 500px; opacity: 1; margin-top: 15px; }
+/* السوق و SYS */
+.market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 400px; }
+.market-card { background: #111; padding: 12px; border-radius: 12px; border: 1px solid #222; }
+.sys-box { background: rgba(20,0,0,0.2); padding: 15px; border-radius: 12px; border: 1px solid var(--red); text-align: right; width: 100%; max-width: 400px; }
+.sys-version { color: var(--red); font-weight: bold; font-size: 0.9rem; border-bottom: 1px solid #333; margin-bottom: 8px; }
+.sys-updates ul { list-style: circle; margin-right: 20px; font-size: 0.75rem; color: #bbb; }
 
-.info-box { background: rgba(138, 43, 226, 0.15); padding: 15px; border-radius: 15px; border-right: 4px solid var(--purple); text-align: right; width: 90%; max-width: 300px; font-size: 0.85rem; line-height: 1.6; }
-
-/* النقابات */
-.guilds-wrapper { display: flex; flex-direction: column; gap: 25px; width: 100%; max-width: 850px; }
-.guild-card { background: var(--glass); padding: 25px; border-radius: 25px; border: 1px solid rgba(0,212,255,0.2); width: 100%; }
-
-@media (min-width: 768px) {
-    .nav-links a { font-size: 0.9rem; padding: 8px 15px; }
-    .guilds-wrapper { flex-direction: row; justify-content: center; }
-    .guild-card { width: 48%; }
-}
+.slide-content { max-height: 0; opacity: 0; overflow: hidden; transition: 0.4s ease-out; width: 100%; }
+.slide-content.active { max-height: 500px; opacity: 1; margin-top: 10px; }
