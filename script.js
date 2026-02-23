@@ -1,3 +1,5 @@
+
+// نظام الجزيئات المطور
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -21,16 +23,17 @@ function init() { for (let i = 0; i < 60; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
+// نظام السلايد التبادلي
 function toggleSlide(id, btn, textOpen, textClose) {
     const content = document.getElementById(id);
     content.classList.toggle('active');
     btn.innerText = content.classList.contains('active') ? textClose : textOpen;
 }
 
-function selectGuild(name, isLocked = false) {
+// أمر الولاء المحمي (لا يتغير إلا بطلب صريح مرتين)
+function selectGuild(name) {
     const saved = localStorage.getItem('myGuild');
     if (saved && saved !== name) { alert("⚠️ الولاء مسجل لـ " + saved); return; }
-    if (isLocked) { alert("⚠️ الفرع مغلق."); return; }
     localStorage.setItem('myGuild', name);
     alert("✅ تم إعلان الولاء لـ " + name);
     if (name === 'Eclipse') window.open("https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5");
