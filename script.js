@@ -3,16 +3,12 @@ const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 window.addEventListener('resize', resize); resize();
-
 let particles = [];
 class Particle {
     constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 1.5 + 0.5;
-        this.speedX = Math.random() * 0.4 - 0.2;
-        this.speedY = Math.random() * 0.4 - 0.2;
-        this.color = Math.random() > 0.5 ? '#00d4ff' : '#8a2be2';
+        this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.5; this.speedX = Math.random() * 0.4 - 0.2;
+        this.speedY = Math.random() * 0.4 - 0.2; this.color = Math.random() > 0.5 ? '#00d4ff' : '#8a2be2';
     }
     update() {
         this.x += this.speedX; this.y += this.speedY;
@@ -25,33 +21,25 @@ function init() { for (let i = 0; i < 60; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-// نظام الولاء (محمي)
+// دالة الانزلاق الموحدة للهواتف
+function toggleSlide(id, btn, textOpen, textClose) {
+    const content = document.getElementById(id);
+    content.classList.toggle('active');
+    btn.innerText = content.classList.contains('active') ? textClose : textOpen;
+}
+
+// نظام الولاء (محمي - لا يتم تعديله)
 function selectGuild(name, isLocked = false) {
     const saved = localStorage.getItem('myGuild');
-    if (saved && saved !== name) { alert("⚠️ ولاؤك مسجل بالفعل لنقابة " + saved); return; }
-    if (isLocked) { 
-        if(confirm("⚠️ هذه النقابة مغلقة. مراسلة الحاكم؟")) window.open("https://wa.me/965997805334");
-        return; 
-    }
+    if (saved && saved !== name) { alert("⚠️ النظام لا يسمح بتغيير الولاء! أنت تنتمي لـ " + saved); return; }
+    if (isLocked) { if(confirm("⚠️ مغلق حالياً. مراسلة الحاكم؟")) window.open("https://wa.me/965997805334"); return; }
     localStorage.setItem('myGuild', name);
     alert("✅ تم إعلان الولاء لـ " + name);
     if (name === 'Eclipse') window.open("https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5");
 }
 
-// التحكم في مجمع التطويرات
-function toggleDevButtons() {
-    const sub = document.getElementById('dev-sub-buttons');
-    const btn = document.getElementById('dev-main-btn');
-    const isHidden = sub.style.display === 'none' || sub.style.display === '';
-    sub.style.display = isHidden ? 'flex' : 'none';
-    btn.innerText = isHidden ? 'إغلاق المجمع' : 'فتح المجمع';
-}
-
-// التحكم في بطاقات التعريف (انزلاق)
-function toggleGuildCard(id) {
-    const card = document.getElementById(id);
-    const isHidden = card.style.display === 'none' || card.style.display === '';
-    // إغلاق البطاقات الأخرى
-    document.querySelectorAll('.guild-info-card').forEach(c => c.style.display = 'none');
-    card.style.display = isHidden ? 'block' : 'none';
+function checkLoyalty(branch) {
+    const saved = localStorage.getItem('myGuild');
+    if (!saved) { alert("⚠️ أعلن ولاؤك أولاً!"); window.location.href = "#guilds"; return; }
+    alert(`⚠️ فرع [${branch}] قيد التطوير.`);
 }
