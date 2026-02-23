@@ -4,7 +4,6 @@ body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; 
 
 #particleCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
-/* إصلاح القائمة العلوية لتظهر كاملة */
 .system-nav { 
     position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); 
     padding: 10px 2%; display: flex; flex-direction: column; align-items: center; 
@@ -12,23 +11,23 @@ body { background: var(--bg); color: white; font-family: 'Tajawal', sans-serif; 
 }
 .logo img { height: 35px; border-radius: 50%; border: 1px solid var(--blue); }
 .nav-links { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; width: 100%; }
-.nav-links a { color: white; text-decoration: none; font-size: 0.7rem; padding: 4px 6px; background: rgba(0, 212, 255, 0.1); border-radius: 4px; white-space: nowrap; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.7rem; padding: 4px 6px; background: rgba(0, 212, 255, 0.1); border-radius: 4px; }
 
 .gate-section { padding: 160px 20px 60px; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.section-banner { width: 95%; max-width: 480px; height: auto; border-radius: 15px; border: 2px solid var(--purple); margin-bottom: 25px; box-shadow: 0 0 20px var(--purple); }
+.section-banner { width: 95%; max-width: 480px; border-radius: 15px; border: 2px solid var(--purple); margin-bottom: 25px; box-shadow: 0 0 20px var(--purple); }
 
-.guilds-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 900px; padding: 10px; }
-.guild-card { background: var(--glass); backdrop-filter: blur(10px); padding: 30px; border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 20px; transition: 0.4s; }
+.guilds-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 900px; }
+.guild-card { background: var(--glass); padding: 30px; border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 20px; }
+.guild-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
 
-.system-btn { width: 100%; max-width: 270px; padding: 13px; border: 2px solid var(--blue); color: var(--blue); text-decoration: none; border-radius: 50px; background: transparent; font-weight: bold; cursor: pointer; transition: 0.4s; display: inline-block; font-size: 0.9rem; }
+.system-btn { width: 100%; max-width: 270px; padding: 13px; border: 2px solid var(--blue); color: var(--blue); text-decoration: none; border-radius: 50px; background: transparent; font-weight: bold; cursor: pointer; transition: 0.4s; font-size: 0.9rem; }
 .system-btn:hover { background: var(--blue); color: black; box-shadow: 0 0 25px var(--blue); }
 
-.glitch { font-family: 'Orbitron', sans-serif; text-shadow: 0 0 15px var(--blue); font-size: 1.8rem; }
+/* أزرار التعريف والتحميل */
+.sub-buttons-container { display: none; flex-direction: column; gap: 10px; margin-top: 15px; width: 100%; animation: slideDown 0.5s ease; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-@media (min-width: 768px) {
-    .system-nav { flex-direction: row; justify-content: space-between; padding: 10px 5%; }
-    .nav-links { gap: 15px; width: auto; }
-    .nav-links a { font-size: 0.9rem; background: none; }
-    .logo img { height: 50px; }
-    .glitch { font-size: 3rem; }
-}
+.info-btn { border-color: var(--purple); color: var(--purple); }
+.info-btn:hover { background: var(--purple); color: white; box-shadow: 0 0 20px var(--purple); }
+
+.glitch { font-family: 'Orbitron', sans-serif; text-shadow: 0 0 15px var(--blue); font-size: 1.8rem; }
