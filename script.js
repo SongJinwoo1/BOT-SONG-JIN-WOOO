@@ -1,9 +1,9 @@
-
-// نظام الجزيئات المطور
+// 1. نظام جزيئات الخلفية (أزرق وبنفسجي)
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 window.addEventListener('resize', resize); resize();
+
 let particles = [];
 class Particle {
     constructor() {
@@ -23,18 +23,18 @@ function init() { for (let i = 0; i < 60; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-// نظام السلايد التبادلي
+// 2. وظيفة السلايد الديناميكي
 function toggleSlide(id, btn, textOpen, textClose) {
     const content = document.getElementById(id);
     content.classList.toggle('active');
     btn.innerText = content.classList.contains('active') ? textClose : textOpen;
 }
 
-// أمر الولاء المحمي (لا يتغير إلا بطلب صريح مرتين)
+// 3. نظام الولاء المحمي
 function selectGuild(name) {
     const saved = localStorage.getItem('myGuild');
-    if (saved && saved !== name) { alert("⚠️ الولاء مسجل لـ " + saved); return; }
+    if (saved && saved !== name) { alert("⚠️ انتمائك مسجل مسبقاً لـ " + saved); return; }
     localStorage.setItem('myGuild', name);
-    alert("✅ تم إعلان الولاء لـ " + name);
+    alert("✅ تم إعلان الولاء لـ " + name + " بنجاح!");
     if (name === 'Eclipse') window.open("https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5");
 }
