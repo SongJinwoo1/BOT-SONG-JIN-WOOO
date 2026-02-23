@@ -1,4 +1,3 @@
-// الخلفية والجزيئات
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
@@ -21,14 +20,13 @@ function init() { for (let i = 0; i < 60; i++) particles.push(new Particle()); }
 function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
 init(); animate();
 
-// دالة الانزلاق
 function toggleSlide(id, btn, textOpen, textClose) {
     const content = document.getElementById(id);
     content.classList.toggle('active');
     btn.innerText = content.classList.contains('active') ? textClose : textOpen;
 }
 
-// نظام الولاء (محمي - لا يمس)
+// نظام الولاء (محمي بطلبك)
 function selectGuild(name, isLocked = false) {
     const saved = localStorage.getItem('myGuild');
     if (saved && saved !== name) { alert("⚠️ النظام لا يسمح بتغيير الولاء! أنت تنتمي لـ " + saved); return; }
