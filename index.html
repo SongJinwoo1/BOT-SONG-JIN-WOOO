@@ -38,18 +38,13 @@
             <img src="photo_5823313378468892156_y.jpg" class="section-banner">
             <h1 class="glitch">المقر الرئيسي للظلال</h1>
             <p style="color: var(--blue); margin-bottom: 15px;">𝑺𝒐𝒏𝒈 𝑱𝒊𝒏 𝑾𝒐𝒐 - 𝑶𝒇𝒇𝒊𝒄𝒊𝒂𝒍 𝑯𝑸</p>
-            <a href="https://wa.me/965997805334" target="_blank" class="system-btn">اتصال مباشر بالحاكم</a>
+            <a href="https://wa.me/96597805334" target="_blank" class="system-btn">اتصال مباشر بالحاكم</a>
         </section>
 
         <section id="commands" class="gate-section">
             <img src="photo_5823313378468892172_y.jpg" class="section-banner">
             <h2>مجمع التطويرات</h2>
-            <button id="dev-main-btn" onclick="toggleDevButtons()" class="system-btn">فتح المجمع</button>
-            
-            <div id="dev-sub-buttons" style="display: none; margin-top: 15px; flex-direction: column; gap: 10px;">
-                <a href="https://whatsapp.com/channel/0029VbCMlkj2ER6nzLnwpO3G" target="_blank" class="system-btn" style="background: linear-gradient(45deg, #25D366, #128C7E); text-decoration: none;">📢 قناة الإعلانات</a>
-                <a href="https://chat.whatsapp.com/JILd7b6sW0JFk4bYPVzRrw?mode=gi_t" target="_blank" class="system-btn" style="background: linear-gradient(45deg, #007bff, #6610f2); text-decoration: none;">🧪 جروب التجارب</a>
-            </div>
+            <button onclick="checkLoyalty('التطويرات')" class="system-btn">فتح المجمع</button>
         </section>
 
         <section id="guilds" class="gate-section">
@@ -59,12 +54,12 @@
                 <div class="guild-card">
                     <h3>نـقـابـة اكـلـيس</h3>
                     <p>المملكة العريقة من 2022.</p>
-                    <a href="https://chat.whatsapp.com/J3ebo43vwzjBlMfViL5EJ5" class="system-btn">إعلان الولاء</a>
+                    <a href="javascript:void(0)" onclick="selectGuild('Eclipse')" class="system-btn">إعلان الولاء</a>
                 </div>
                 <div class="guild-card">
                     <h3>نـقـابـة اسـبـادا</h3>
                     <p>فرع إقليمي - قيد الاستيقاظ.</p>
-                    <button class="system-btn" style="opacity: 0.5; cursor: not-allowed;">مغلق حالياً</button>
+                    <button onclick="selectGuild('اسبادا', true)" class="system-btn">مغلق حالياً</button>
                 </div>
             </div>
         </section>
@@ -95,19 +90,5 @@
     </main>
 
     <script src="script.js"></script>
-    <script>
-        // دالة التبديل للأزرار الجديدة
-        function toggleDevButtons() {
-            const subButtons = document.getElementById('dev-sub-buttons');
-            const mainBtn = document.getElementById('dev-main-btn');
-            if (subButtons.style.display === 'none' || subButtons.style.display === '') {
-                subButtons.style.display = 'flex';
-                mainBtn.innerText = 'إغلاق المجمع';
-            } else {
-                subButtons.style.display = 'none';
-                mainBtn.innerText = 'فتح المجمع';
-            }
-        }
-    </script>
 </body>
 </html>
